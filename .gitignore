@@ -1,3 +1,4 @@
 
 report/main.*
 !report/main.tex
+*.pdf
