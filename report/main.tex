@@ -6,6 +6,8 @@
 \usepackage[utf8]{inputenc} % Codification
 \usepackage[english]{babel} % Writing idiom
 
+\usepackage{float}
+
 \usepackage[export]{adjustbox} % Align images
 \usepackage{amsmath} %a Extra commands for math mode
 \usepackage{amssymb} % Mathematical symbols
@@ -150,8 +152,8 @@
     \begin{minipage}{0.5\textwidth}
         \begin{flushright}
             \href{mailto:md.agostinho@campus.fct.unl.pt}{\texttt{md.agostinho@campus.fct.unl.pt}}\\
-            \href{mailto:sm.inacio@campus.fct.unl.pt}{\texttt{lorem.ipsum@campus.fct.unl.pt}}\\
-            \href{mailto:lorem.ipsum@campus.fct.unl.pt}{\texttt{lorem.ipsum@campus.fct.unl.pt}}
+            \href{mailto:sm.inacio@campus.fct.unl.pt}{\texttt{sm.inacio@campus.fct.unl.pt}}\\
+            \href{mailto:jafe.lopes@campus.fct.unl.pt}{\texttt{jafe.lopes@campus.fct.unl.pt}}
         \end{flushright}
     \end{minipage}
 \end{center}
@@ -198,8 +200,6 @@ vii) draw the final and main conclusions.\\
 
 \subfile{Sections/Introduction.tex}
 
-\textcolor{red}{i) a brief description of the circuit’s topology (by explaining the function of each device and/or group of devices)}
-
 \subfile{Sections/TheoreticalAnalysys.tex}
 
 
@@ -215,6 +215,10 @@ vii) draw the final and main conclusions.\\
 \textcolor{red}{vii) draw the final and main conclusions.}
 
 \newpage
-\bibliography{references}
+
+\bibliographystyle{plain} % or use "ieeetr" or "alpha" if you prefer
+\bibliography{references} % this calls the references.bib file
+[2] quero por esta referencia mas n consigo: IEEE-JOURNAL-OF-SOLID-STATE-CIRCUITS
+
 
 \end{document}
