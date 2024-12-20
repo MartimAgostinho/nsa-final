@@ -7,7 +7,7 @@ In this section, we will perform a theoretical analysis that determined the beha
 \textcolor{red}{explicar como chagamos ás expressoes por esquematico de parte do circuito que analizamos}
 \subsection {DC Gain}
 
-The DC gain of the circuit is given by $A_v$ where $G_M$ is the total transcondutance responsible for the gain of the circuit and $g_{out}$ is the conductance (inverse of the resistance) Seen form the output of the circuit.
+The DC gain of the circuit is given by $A_v$ where $G_M$ is the total transcondutance responsible for the gain of the circuit and $g_{out}$ is the conductance (inverse of the resistance) Seen from the output of the circuit.
 
 $$A_v =  \frac{G_M}{g_{out}} \geq 66\hspace{0.1cm}dB$$
 
@@ -42,7 +42,7 @@ $$C_{out} = C_L + C_{bd3} + C_{gd3} + C_{bd5} + C_{gd5}$$
 \textcolor{red}{ver qual é fp2 e fp3 - fpx ou fpz }
 
 \subsection{Pole Frequencies}
-in order to guarantee \textbf{stability in a unity-gain closed-loop} configuration we need to define the frequencies
+in order to guarantee \textbf{stability in a unity-gain closed-loop} Configuration we need to define the frequencies
 for poles $f_{px}$ and  $f_{pz}$
 
 $$f_{px} = \frac{1}{C_x\cdot r_x} > x  \hspace{2cm}  f_{pz} = \frac{1}{C_z\cdot r_z} > y$$
@@ -59,24 +59,24 @@ Thus, we will need to calculate the equivalent capacitance and resistance at nod
 \end{equation}
 
 \subsection{Output Swing}
-The \textbf{output swing} of the amplifier can be obtained by the following expression following a margin $V_{margin}$ of 80 mV or 0.08 V :
+The output swing of the amplifier can be obtained by the following expression following a margin $V_{margin}$ of 80 mV or 0.08 V :
 
 $$OS = V_{DD} - V_{DSsat11} - V_{DSsat3} - V_{DSsat5} - V_{DSsat7a} - 0.08  \geq  0.5 \hspace{0.2cm} V_{p-p}$$
 
 \subsection{Excess-Noise Factor}
-The \textbf{Excess-Noise factor} is the additional noise created by a amplifier with gain $A_v$. A amplifier with excess noise of 1 means that the intrinsic noise is multiplied by 1 therefore, the noise is not made any worse, but any value over 1 means the noise is increased due to the gain, we can calculate the value for Excess-Noise factor $\Gamma$ given by the following equation:
+The Excess-Noise factor is the additional noise created by an amplifier with gain $A_v$. An amplifier with excess noise of 1 means that the intrinsic noise is multiplied by 1 therefore, the noise is not made any worse, but any value over 1 means the noise is increased due to the gain, we can calculate the value for Excess-Noise factor $\Gamma$ given by the following equation:
 
 $$\Gamma = 1 + \frac{3}{4}\cdot \frac{gm_{8a}}{gm_{1a}} + \frac{1}{4}\cdot \frac{gm_{10}}{gm_{1a}}$$
 
 \subsection{Power Dissipation}
 
-Its intended that the \textbf{power dissipation} $P_D$ is minimized in order to have the best performing low power amp.
+Its intended that the power dissipation $P_D$ is minimized in order to have the best performing low power amp.
 
 Where: 
 
 $$P_D = V_{DD} \times \left(2 \times I_B + \dfrac{I_B\cdot 4}{10}\right) $$
 
 \subsection{Figure of Merit (FoM)}
- We will also need to achieve the best possible \textbf{figure-of-merit FoM} defined by: 
+ We will also need to achieve the best possible figure-of-merit FoM defined by: 
 
 $$FoM = 1000 \times \dfrac{GBW \times C_L}{P_D}$$
