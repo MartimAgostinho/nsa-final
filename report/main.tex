@@ -6,6 +6,8 @@
 \usepackage[utf8]{inputenc} % Codification
 \usepackage[english]{babel} % Writing idiom
 
+\usepackage{float}
+
 \usepackage[export]{adjustbox} % Align images
 \usepackage{amsmath} %a Extra commands for math mode
 \usepackage{amssymb} % Mathematical symbols
@@ -144,14 +146,14 @@
         \begin{flushleft}
             Martim Duarte Agostinho (70392)\\
             Sofia Margarida Mafra Dias Inácio (58079)\\
-            Lorem Ipsum (\texttt{StudentId} $\in \mathbb{Z}^+$)
+            Júlio Alexandre Fernandes Lopes (70512)\\
         \end{flushleft}
     \end{minipage}%
     \begin{minipage}{0.5\textwidth}
         \begin{flushright}
             \href{mailto:md.agostinho@campus.fct.unl.pt}{\texttt{md.agostinho@campus.fct.unl.pt}}\\
             \href{mailto:sm.inacio@campus.fct.unl.pt}{\texttt{sm.inacio@campus.fct.unl.pt}}\\
-            \href{mailto:lorem.ipsum@campus.fct.unl.pt}{\texttt{lorem.ipsum@campus.fct.unl.pt}}
+            \href{mailto:jafe.lopes@campus.fct.unl.pt}{\texttt{jafe.lopes@campus.fct.unl.pt}}
         \end{flushright}
     \end{minipage}
 \end{center}
@@ -177,6 +179,17 @@
 
 \tableofcontents % Generates the table of contents
 
+\vspace{4cm}
+
+\textbf{Produce a detailed report that includes:} \\\\
+i) a brief description of the circuit’s topology (by explaining the function of each device and/or group of devices)\\
+ii) the eight equations\\
+iii) the adopted optimization strategy and the final sizing\\
+iv) showing your simulation results (DC and AC) and a comparison (explaining the discrepancies) between the theoretical sizing (equations) and SPECTRETM simulations\\
+v) a brief comparison of the energy-efficiency (FOM) of this RFC amplifier, with the classic folded-cascode amplifier (FCA) previously designed in the previous laboratory work\\
+vi) (optional) estimate the area of the circuit, by doing a semi-automated layout placement using Layout-XL\\
+vii) draw the final and main conclusions.\\
+
 \newpage
 
 \listoffigures
@@ -186,11 +199,26 @@
 % \subfile{Sections/Templates.tex}
 
 \subfile{Sections/Introduction.tex}
+
 \subfile{Sections/TheoreticalAnalysys.tex}
+
+
 \subfile{Sections/Optimization.tex}
+
+\textcolor{red}{iii) the adopted optimization strategy and the final sizing}//
+
 \subfile{Sections/Simulation.tex}
+
+\textcolor{red}{v) showing your simulation results (DC and AC) and a comparison (explaining the discrepan-cies) between the theoretical sizing (equations) and SPECTRETM simulations}
+
 \subfile{Sections/ResultsAnalysysConclusion.tex}
+\textcolor{red}{vii) draw the final and main conclusions.}
+
 \newpage
-\bibliography{references}
+
+\bibliographystyle{plain} % or use "ieeetr" or "alpha" if you prefer
+\bibliography{references} % this calls the references.bib file
+[2] quero por esta referencia mas n consigo: IEEE-JOURNAL-OF-SOLID-STATE-CIRCUITS
+
 
 \end{document}
