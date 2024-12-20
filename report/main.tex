@@ -90,6 +90,8 @@
 \definecolor{cellborder}{HTML}{CFCFCF}
 \definecolor{cellbackground}{HTML}{F7F7F7}
 
+\renewcommand{\thetable}{\Roman{table}} % Roman numerals for tables
+
 %folders .tex
 \usepackage{subfiles}
 
@@ -181,30 +183,19 @@
 
 \vspace{4cm}
 
-\textbf{Produce a detailed report that includes:} \\\\
-i) a brief description of the circuit’s topology (by explaining the function of each device and/or group of devices)\\
-ii) the eight equations\\
-iii) the adopted optimization strategy and the final sizing\\
-iv) showing your simulation results (DC and AC) and a comparison (explaining the discrepancies) between the theoretical sizing (equations) and SPECTRETM simulations\\
-v) a brief comparison of the energy-efficiency (FOM) of this RFC amplifier, with the classic folded-cascode amplifier (FCA) previously designed in the previous laboratory work\\
-vi) (optional) estimate the area of the circuit, by doing a semi-automated layout placement using Layout-XL\\
-vii) draw the final and main conclusions.\\
-
 \newpage
 
 \listoffigures
+
+\listoftables
 
 \newpage
 
 % \subfile{Sections/Templates.tex}
 
 \subfile{Sections/Introduction.tex}
-
 \subfile{Sections/TheoreticalAnalysys.tex}
-
-
 \subfile{Sections/Optimization.tex}
-
 \textcolor{red}{iii) the adopted optimization strategy and the final sizing}//
 
 \subfile{Sections/Simulation.tex}
@@ -216,9 +207,6 @@ vii) draw the final and main conclusions.\\
 
 \newpage
 
-\bibliographystyle{plain} % or use "ieeetr" or "alpha" if you prefer
 \bibliography{references} % this calls the references.bib file
-[2] quero por esta referencia mas n consigo: IEEE-JOURNAL-OF-SOLID-STATE-CIRCUITS
-
 
 \end{document}
