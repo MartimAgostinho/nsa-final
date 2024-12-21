@@ -6,6 +6,8 @@
 \usepackage[utf8]{inputenc} % Codification
 \usepackage[english]{babel} % Writing idiom
 
+\usepackage{float}
+
 \usepackage[export]{adjustbox} % Align images
 \usepackage{amsmath} %a Extra commands for math mode
 \usepackage{amssymb} % Mathematical symbols
@@ -88,6 +90,8 @@
 \definecolor{cellborder}{HTML}{CFCFCF}
 \definecolor{cellbackground}{HTML}{F7F7F7}
 
+\renewcommand{\thetable}{\Roman{table}} % Roman numerals for tables
+
 %folders .tex
 \usepackage{subfiles}
 
@@ -150,8 +154,8 @@
     \begin{minipage}{0.5\textwidth}
         \begin{flushright}
             \href{mailto:md.agostinho@campus.fct.unl.pt}{\texttt{md.agostinho@campus.fct.unl.pt}}\\
-            \href{mailto:sm.inacio@campus.fct.unl.pt}{\texttt{lorem.ipsum@campus.fct.unl.pt}}\\
-            \href{mailto:lorem.ipsum@campus.fct.unl.pt}{\texttt{lorem.ipsum@campus.fct.unl.pt}}
+            \href{mailto:sm.inacio@campus.fct.unl.pt}{\texttt{sm.inacio@campus.fct.unl.pt}}\\
+            \href{mailto:jafe.lopes@campus.fct.unl.pt}{\texttt{jafe.lopes@campus.fct.unl.pt}}
         \end{flushright}
     \end{minipage}
 \end{center}
@@ -179,32 +183,19 @@
 
 \vspace{4cm}
 
-\textbf{Produce a detailed report that includes:} \\\\
-i) a brief description of the circuit’s topology (by explaining the function of each device and/or group of devices)\\
-ii) the eight equations\\
-iii) the adopted optimization strategy and the final sizing\\
-iv) showing your simulation results (DC and AC) and a comparison (explaining the discrepancies) between the theoretical sizing (equations) and SPECTRETM simulations\\
-v) a brief comparison of the energy-efficiency (FOM) of this RFC amplifier, with the classic folded-cascode amplifier (FCA) previously designed in the previous laboratory work\\
-vi) (optional) estimate the area of the circuit, by doing a semi-automated layout placement using Layout-XL\\
-vii) draw the final and main conclusions.\\
-
 \newpage
 
 \listoffigures
+
+\listoftables
 
 \newpage
 
 % \subfile{Sections/Templates.tex}
 
 \subfile{Sections/Introduction.tex}
-
-\textcolor{red}{i) a brief description of the circuit’s topology (by explaining the function of each device and/or group of devices)}
-
 \subfile{Sections/TheoreticalAnalysys.tex}
-
-
 \subfile{Sections/Optimization.tex}
-
 \textcolor{red}{iii) the adopted optimization strategy and the final sizing}//
 
 \subfile{Sections/Simulation.tex}
@@ -215,6 +206,7 @@ vii) draw the final and main conclusions.\\
 \textcolor{red}{vii) draw the final and main conclusions.}
 
 \newpage
-\bibliography{references}
+
+\bibliography{references} % this calls the references.bib file
 
 \end{document}
