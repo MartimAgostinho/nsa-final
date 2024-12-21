@@ -29,9 +29,9 @@ The parameters chosen to study were based on the constraints and goals mentioned
 \textcolor{red}{explicar como chagamos ás expressoes}
 \subsection {DC Gain}
 
-The DC gain $A_v$ is obtained as the short-circuit transconductance $G_m$ multiplied by the output resistance $r_{out}$.
+The DC gain $A_v$ is obtained as the short-circuit transconductance $G_M$ multiplied by the output resistance $r_{out}$.
 
-$$A_v = G_m \cdot r_{out}$$
+$$A_v = G_M \cdot r_{out}$$
 
 The short-circuit transconductance $G_m$, that is represented in Figure \ref{fig:cc_transconductance} is calculated analysing the small signals model dipicted in Figure \ref{fig:small_signals}.
 
@@ -49,13 +49,13 @@ The short-circuit transconductance $G_m$, that is represented in Figure \ref{fig
     \label{fig:small_signals}
 \end{figure}
 
-The transconductance $G_m$ is given by:
+The transconductance $G_M$ is given by:
 
 $$G_M = \left. \frac{i_{\text{out}}}{v_{\text{ip}}} \right|_{v_{\text{out}}=0}$$
 
-Applying KCL in the nodes and manipulating the equations, the following expression for $G_m$ is obtained:
+Applying KCL in the nodes and manipulating the equations, the following expression for $G_M$ is obtained:
 
-$$G_m = g_{m2a} + g_{m1b} \cdot \frac{g_{m7a}}{g_{m7b}}$$
+$$G_M = g_{m2a} + g_{m1b} \cdot \frac{g_{m7a}}{g_{m7b}}$$
 
 Since the relation between $g_{m7a}$ and $g_{m7b}$ is given by $g_{m7a} = 3 \cdot g_{m7b}$, the expression for $G_m$ can be simplified to:  
 
@@ -82,7 +82,7 @@ Where $g_{op}$ is the conductance seen from the output node to the upper part of
 
 The DC gain $A_v$ is given by:
 
-$$|A_v| = \frac{G_m}{g_{on} + g_{op}} = \frac{BE \cdot (gm_{2a} + 3 \cdot gm_{1b})}{gds_{11} \cdot \frac{gds_{3}}{gm_{3}\cdot BE} + (gds_{2a} + gds_{7a}) \cdot \frac{gds_{5}}{gm_{5} \cdot BE}}$$
+$$|A_v| = \frac{G_m}{g_{on} + g_{op}} = \frac{BE \cdot (g_{m2a} + 3 \cdot g_{m1b})}{g_{ds11} \cdot \frac{g_{ds3}}{g_{m3}\cdot BE} + (g_{ds2a} + g_{ds7a}) \cdot \frac{g_{ds5}}{g_{m5} \cdot BE}}$$
 
 As mentioned before, the constant BE was added to simulate the body effect present on those transistors.
 
