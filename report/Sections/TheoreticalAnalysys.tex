@@ -102,13 +102,28 @@ $$|A_v| = \frac{G_m}{g_{on} + g_{op}} = \frac{BE \cdot (g_{m2a} + 3 \cdot g_{m1b
 As mentioned before, the constant BE was added to simulate the body effect present on those transistors.
 
 \subsection{Gain Bandwidth Product (GBW)}
-The gain bandwidth product can be obtained by the ratio between $G_M$ and $C{out}$ that is the dominant pole and is the equivalent capacitance seen from the output node.
+The gain bandwidth product is denoted by the product of the DC gain $A_v$ and the dominant pole frequency $f_{p1}$, that is the frequency where the gain of the amplifier is 0 dB. 
 
-$$  GBW = \frac{G_M}{C_{out}} >= \SI{100}{\mega\hertz} $$
+The dominant pole frequency $f_{p1}$ is given by:
+
+$$f_{p1} = \frac{1}{2\pi \cdot r_{out} \cdot C_{out}} \ [Hz]$$
+
+can be obtained by the ratio between $G_M$ and $C{out}$ that is the dominant pole and is calculated as the equivalent capacitance seen from the output node, depicted in Figure \ref{fig:cout_sch}.
+
+$$  GBW = \frac{A_v}{f_{p1}} = \frac{G_M \cdot r_{out}}{2\pi \cdot C_{out} \cdot r_{out}}=\frac{G_M}{2\pi \cdot C_{out}} \ [Hz] $$
 
 $C_{out}$ is given by :
 
-$$C_{out} = C_L + C_{bd3} + C_{gd3} + C_{bd5} + C_{gd5}$$
+$$C_{out} = C_L + C_{bd3} + C_{gd3} + C_{bd5} + C_{gd5} \ [F] $$
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/Cout_sch.png}
+    \caption{Output capacitance calculation schematic}
+    \label{fig:cout_sch}
+\end{figure}
+
 
 \textcolor{red}{ver qual é fp2 e fp3 - fpx ou fpz }
 
