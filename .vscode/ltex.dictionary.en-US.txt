@@ -2,3 +2,4 @@ Nanocircuits
 Transconductance
 Cascode
 transcondutance
+transconductance

@@ -1,8 +1,8 @@
 \section{Theoretical Analysis}
 
-In this section, we will perform a theoretical analysis that determined the behavior of the Recycling Folded Cascode (RFC) Operational Transconductance Amplifier (OTA) circuit. The main goal of this analysis is to understand the behavior of the circuit and to determine the values of the different parameters that will allow us to achieve the desired performance.
+In this section, we will perform a theoretical analysis that determined the behavior of the Recycling Folded Cascode (RFC) Operational Transconductance Amplifier (OTA) circuit. The main goal of this analysis is to understand the behavior of the circuit and to determine the values of the different parameters that will allow achieving the desired performance.
 
-\textcolor{red}{explicar os main blocos do circuito}
+Observing the full schematic without the biasing circuit, it can be pointed out that the circuit is symmetrical as depicted in Figure \ref{fig:full_schematic}. 
 
 \begin{figure}[H]
     \centering
@@ -10,6 +10,12 @@ In this section, we will perform a theoretical analysis that determined the beha
     \caption{Full Schematic without biasing circuit}
     \label{fig:full_schematic}
 \end{figure}
+
+For sake of simplicity, the theoretical analysis was done only in half of the circuit, as showed in Figure \ref{fig:simplified_schematic}. The analysis was done in the half that contains the output signal, and as the other half is symmetrical to the one analyzed, the results obtained in this analysis can be applied to the both halves of the circuit. 
+
+The parameters chosen to study were based on the constraints and goals mentioned in Table \ref{tab:goals}. The following subsections will explain how the values for the different parameters were obtained.
+
+\textcolor{red}{explicar os main blocos do circuito ir ver o artigo}
 
 \begin{figure}[H]
     \centering
@@ -20,22 +26,52 @@ In this section, we will perform a theoretical analysis that determined the beha
 
 
 
-\textcolor{red}{explicar como chagamos ás expressoes por esquematico de parte do circuito que analizamos}
+\textcolor{red}{explicar como chagamos ás expressoes}
 \subsection {DC Gain}
 
-The DC gain of the circuit is given by $A_v$ where $G_M$ is the total transcondutance responsible for the gain of the circuit and $g_{out}$ is the conductance (inverse of the resistance) Seen from the output of the circuit.
+The DC gain $A_v$ is obtained as the short-circuit transconductance $G_m$ multiplied by the output resistance $r_{out}$.
 
-$$A_v =  \frac{G_M}{g_{out}} \geq 66\hspace{0.1cm}dB$$
+$$A_v = G_m \cdot r_{out}$$
 
-Where:
-\begin{equation}
-    \begin{cases}
-        G_M = g_{m2a} + g_{m1b} \cdot \frac{g_{m7a}}{g_{m7b}} \approx g_{m2a} + 3 \cdot g_{m1b} \\
-        g_{out} = g_{op} + g_{on}
-    \end{cases}
-\end{equation}
+The short-circuit transconductance $G_m$, that is represented in Figure \ref{fig:cc_transconductance} is calculated analysing the small signals model dipicted in Figure \ref{fig:small_signals}.
 
-The total conductance seen from the output can be broken into 2 parts, conductance \textit{up} $g_{op}$ seen from the output node to the upper part of the circuit $V_{dd}$ and conductance \textit{down} $g_{on}$ seen from the output node to the lowest part of the circuit $V_{ss}$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Images/cc_transconductance.png}
+    \caption{Short-circuit transconductance calculation diagram}
+    \label{fig:cc_transconductance}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Images/small_signals.png}
+    \caption{Small signals model}
+    \label{fig:small_signals}
+\end{figure}
+
+The transconductance $G_m$ is given by:
+
+$$G_M = \left. \frac{i_{\text{out}}}{v_{\text{ip}}} \right|_{v_{\text{out}}=0}$$
+
+Applying KCL in the nodes and manipulating the equations, the following expression for $G_m$ is obtained:
+
+$$G_m = g_{m2a} + g_{m1b} \cdot \frac{g_{m7a}}{g_{m7b}}$$
+
+Since the relation between $g_{m7a}$ and $g_{m7b}$ is given by $g_{m7a} = 3 \cdot g_{m7b}$, the expression for $G_m$ can be simplified to:  
+
+$$G_M = BE \cdot (g_{m2a} + 3 \cdot g_{m1b})$$
+
+The constant BE was added to simulate the body effect present on those transistors.
+
+Studying the output resistance $r_{out}$, in can be seen as:
+
+$$r_out = \frac{1}{g_out}$$
+
+The output conductance $g_{out}$ is given by:
+
+$$g_{out} = g_op + g_on$$
+
+Where $g_{op}$ is the conductance seen from the output node to the upper part of the circuit $V_{dd}$ and $g_{on}$ is the conductance seen from the output node to the lowest part of the circuit $V_{ss}$.
 
 \begin{equation}
     \begin{cases}
@@ -43,6 +79,13 @@ The total conductance seen from the output can be broken into 2 parts, conductan
         g_{on} = \left( g_{ds2a} + g_{ds7a} \right) \cdot \frac{g_{ds5}}{g_{m5}}
     \end{cases}
 \end{equation}
+
+The DC gain $A_v$ is given by:
+
+$$|A_v| = \frac{G_m}{g_{on} + g_{op}} = \frac{BE \cdot (gm_{2a} + 3 \cdot gm_{1b})}{gds_{11} \cdot \frac{gds_{3}}{gm_{3}\cdot BE} + (gds_{2a} + gds_{7a}) \cdot \frac{gds_{5}}{gm_{5} \cdot BE}}$$
+
+As mentioned before, the constant BE was added to simulate the body effect present on those transistors.
+
 
 \subsection{Gain Bandwidth Product (GBW)}
 The gain bandwidth product can be obtained by the ratio between $G_M$ and $C{out}$ where $C{out}$ is the equivalent capacitance seen from the output node.
