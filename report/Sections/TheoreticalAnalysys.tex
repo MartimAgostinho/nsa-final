@@ -108,14 +108,11 @@ The dominant pole frequency $f_{p1}$ is given by:
 
 $$f_{p1} = \frac{1}{2\pi \cdot r_{out} \cdot C_{out}} \ [Hz]$$
 
-can be obtained by the ratio between $G_M$ and $C{out}$ that is the dominant pole and is calculated as the equivalent capacitance seen from the output node, depicted in Figure \ref{fig:cout_sch}.
+$$  GBW = \frac{A_v}{f_{p1}} = \frac{G_M \cdot r_{out}}{2\pi \cdot C_{out} \cdot r_{out}}=\frac{G_M}{2\pi \cdot C_{out}} \ [Hz] $$ \\
 
-$$  GBW = \frac{A_v}{f_{p1}} = \frac{G_M \cdot r_{out}}{2\pi \cdot C_{out} \cdot r_{out}}=\frac{G_M}{2\pi \cdot C_{out}} \ [Hz] $$
+$C_{out}$ is depicted in Figure \ref{fig:cout_sch} and is given by :
 
-$C_{out}$ is given by :
-
-$$C_{out} = C_L + C_{bd3} + C_{gd3} + C_{bd5} + C_{gd5} \ [F] $$
-
+$$C_{out} = C_L + C_{bd3} + C_{gd3} + C_{bd5} + C_{gd5} \ [F] $$ \\
 
 \begin{figure}[H]
     \centering
@@ -127,27 +124,44 @@ $$C_{out} = C_L + C_{bd3} + C_{gd3} + C_{bd5} + C_{gd5} \ [F] $$
 
 \textcolor{red}{ver qual é fp2 e fp3 - fpx ou fpz }
 
-\subsection{Pole Frequencies}
-in order to guarantee \textbf{stability in a unity-gain closed-loop} Configuration we need to define the frequencies
-for poles $f_{px}$ and  $f_{pz}$
+\subsection{Second and Third Pole Frequencies}
+In order to guarantee \textbf{stability in a unity-gain closed-loop} configuration the second and third poles frequencies were studied as $f_{px}$ and  $f_{pz}$.
 
-$$f_{px} = \frac{1}{C_x\cdot r_x} > x  \hspace{2cm}  f_{pz} = \frac{1}{C_z\cdot r_z} > y$$
+$$f_{px} = \frac{1}{2\pi \cdot C_x\cdot r_x} \ [Hz]  \hspace{2cm}  f_{pz} = \frac{1}{2\pi \cdot C_z\cdot r_z} \ [Hz]$$
 
-Thus, we will need to calculate the equivalent capacitance and resistance at node $x$ and $y$ given by:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/Cx_Cz.png}
+    \caption{Capacitances calculation schematic}
+    \label{fig:poles_sch}
+\end{figure}
+
+Thus, we will need to calculate the equivalent capacitances at node $x$ and $z$, depicted in Figure \ref{fig:poles_sch}, are given by:
 
 \begin{equation}
     \begin{cases}
         C_x = C_{gd7a} + C_{bd7a}+ C_{gd2a} + C_{bd2a} + C_{gd5} + C_{bs5}\\
         C_z = C_{gs13} + C_{bs13} + C_{bd7b}+ C_{gs7b} \\
-        r_z \approx \frac{1}{gm13} \\
-        r_x \approx g_{m5} 
     \end{cases}
 \end{equation}
 
-\subsection{Output Swing}
-The output swing of the amplifier can be obtained by the following expression following a margin $V_{margin}$ of 80 mV or 0.08 V :
+The equivalent resistances at node $x$ and $z$ are given by:
 
-$$OS = V_{DD} - V_{DSsat11} - V_{DSsat3} - V_{DSsat5} - V_{DSsat7a} - 0.08  \geq  0.5 \hspace{0.2cm} V_{p-p}$$
+\begin{equation}
+    \begin{cases}
+        r_x = \frac{1}{g_{m5}} \ // \ \frac{1}{g_{ds7a}} \ // \ \frac{1}{g_{ds2a}}\approx \frac{1}{g_{m5} \cdot BE}\\
+        r_z = \frac{1}{g_{m13}} \ // \ \frac{1}{g_{ds7b}} \approx \frac{1}{g_{m13} \cdot BE} \\
+    \end{cases}
+\end{equation}
+
+The second and third pole frequencies vary with the transistors specifications, thus x and z poles are not defined in this section.
+
+\subsection{Output Swing}
+The output-swing defines the maximum approximation of the amplifier's output voltage to the supply voltages ($V_{dd}$ and $V_{ss}$), to prevent saturation. The output-swing takes into account the voltages needed to keep the output transistors in the moderate inversion zone and also the operating margin, which in this case is $V_{margin}=80mV$ for each side.
+
+The output-swing of the amplifier can be obtained by the following expression:
+
+$$OS = V_{DD} - V_{DSsat11} - V_{DSsat3} - V_{DSsat5} - V_{DSsat7a} - 0.16 \ [V]$$
 
 \subsection{Excess-Noise Factor}
 The Excess-Noise factor is the additional noise created by an amplifier with gain $A_v$. An amplifier with excess noise of 1 means that the intrinsic noise is multiplied by 1 therefore, the noise is not made any worse, but any value over 1 means the noise is increased due to the gain, we can calculate the value for Excess-Noise factor $\Gamma$ given by the following equation:
