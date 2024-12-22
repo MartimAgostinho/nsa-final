@@ -3,3 +3,4 @@ Transconductance
 Cascode
 transcondutance
 transconductance
+Capacitances
