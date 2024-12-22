@@ -1,1 +1,27 @@
 \section{Results Analysis and Conclusion}
+
+In this section, the results obtained from the simulation of the OTA circuit are presented and analyzed. The results are compared with the theoretical values.
+
+Analyzing the DC simulation, it was detected an error in the current of transistors $M_10$ and $M_11$. Observing the simulation process the error could not be detected, but was found in the Python script that was used to extract the values for the simulations. The error was in the calculation of the width of the transistors, which was calculated with $I_B/4$ instead of $I_B/2$ as it should be. This error was corrected, and the theoretical values were recalculated and are shown in Tables \ref{tab:DC-corrected} and \ref{tab:sizes corrected}.
+
+\begin{table}[H]
+    \centering
+    \caption{Transistors theoretical sizes after correction}
+    \label{tab:sizes corrected}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Transistors theoretical DC OP after correction}
+    \label{tab:DC-corrected}
+\end{table}
+
+Nevertheless, the results obtained from the DC simulation were expected after encountering the error. As the $M_{10}$ and $M_{11}$ transistors were sized for a current of $I_B/4$, this current was propagated to the other transistors connected to them. This caused the values of the currents to be lower than expected in the transistors $M_3$, $M_4$, $M_5$, $M_6$, $M_{7a}$, $M_{8a}$, $M_{10}$ as shown in table \ref{tab:DC-RFC}.
+
+The AC simulation performed showed acceptable values for the goals and constraints defined in the previous sections, even with the error in the biasing of the transistors.
+
+The results obtain from this configuration of Recycling Folded-Cascode OTA can overcome the ones obtain with the conventional Folded-Cascode OTA, even without being biased fully correctly.
+
+\subsection{Future Work}
+
+The next steps to be taken are to correct the schematic and simulate the circuit again. From the simulations taken, the prediction made is that the results will be closer to the desired values. 
