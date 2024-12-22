@@ -79,7 +79,7 @@ Since the relation between $g_{m7a}$ and $g_{m7b}$ is given by $g_{m7a} = 3 \cdo
 
 The constant BE was added to simulate the body effect present on those transistors.
 
-Studying the output resistance $r_{out}$, in can be seen as:
+Studying the output resistance $r_{out}$, it can be seen as:
 
 \begin{equation}
     r_{out} = \frac{1}{g_{out}} \ [\Omega] \\
@@ -113,7 +113,7 @@ The DC gain $A_v$ is given by:
 As mentioned before, the constant BE was added to simulate the body effect present on those transistors.
 
 \subsection{Gain Bandwidth Product (GBW)}
-The gain bandwidth product is denoted by the product of the DC gain $A_v$ and the dominant pole frequency $f_{po}$, that is the frequency where the gain of the amplifier is 0 dB. 
+The gain bandwidth product is denoted by the product of the DC gain $A_v$ and the dominant pole frequency $f_{po}$, that is the frequency where the gain of the amplifier is \SI{0}{\decibel}. 
 
 The dominant pole frequency $f_{po}$ is given by:
 
@@ -184,7 +184,7 @@ The equivalent resistances at nodes in study are given by:
 \end{align}
 
 \subsection{Output Swing}
-The output-swing defines the maximum approximation of the amplifier's output voltage to the supply voltages ($V_{dd}$ and $V_{ss}$), to prevent saturation. The output-swing takes into account the voltages needed to keep the output transistors in the moderate inversion zone and also the operating margin, which in this case is $V_{margin}=80mV$ for each side.
+The output-swing defines the maximum approximation of the amplifier's output voltage to the supply voltages ($V_{dd}$ and $V_{ss}$), to prevent saturation. The output-swing takes into account the voltages needed to keep the output transistors in the moderate inversion zone and also the operating margin, which in this case is $V_{margin}=\SI{80}{\milli\volt}$ for each side.
 
 The output-swing of the amplifier can be obtained by the following expression:
 \begin{equation}
@@ -205,16 +205,23 @@ The amplifier's excess noise factor was studied for only half of the circuit. Be
 
 \subsection{Power Dissipation}
 
-Its intended that the power dissipation $P_D$ is minimized in order to have the best performing low power amp.
+The power dissipation is given by $I_T\cdot V_{DD}$, where $I_T$ is all the current consumed by the circuit. 
 
-Where: 
+\begin{equation}
+    I_T = 4\cdot \frac{I_B}{10} + 2\cdot\frac{I_B}{2} + I_B 
+\end{equation}
+
+Hence:
+
 \begin{equation}
     P_D = V_{DD} \cdot \left(2 \cdot I_B + \dfrac{I_B\cdot 4}{10}\right) \ [\si{\watt}]
     \label{eq:PD}
 \end{equation}
 
 \subsection{Figure of Merit (FoM)}
- We will also need to achieve the best possible figure-of-merit FoM defined by\textsuperscript{\cite{Lab-statement}}: 
+
+In order to evaluate the circuit performance, a Figure of Merit (FoM) was defined \textsuperscript{\cite{Lab-statement}}, as seen in equation \ref{eq:FoM}.
+
 \begin{equation}
     FoM = \frac{1000 \cdot GBW \cdot C_L}{P_D} \ [\si{\mega\hertz}\cdot\si{\pico\farad/\milli\watt}]
     \label{eq:FoM}

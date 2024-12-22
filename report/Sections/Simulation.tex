@@ -194,3 +194,59 @@ The area occupied by the circuit was approximately \SI{1.68}{\nano\meter\squared
 
 \subsection{Improvement proposal of biasing circuit}
 
+Given that $i_{dB3} = i_{dB5}$ and $V_{B1}$ is only used to bias $M_{B7}$, e$V_{B4}$ should be enough to bias $M_{B7}$, in order to do that, $M_{B7} = M_{B5}$. This way $M_{B2}$ and $M_{B3}$ can be removed from the circuit. To test wether this works, this modification was applied to the original circuit and tested the same why the original circuit was. The resulting biasing circuit can be viewed in Figure \ref{fig:mod-bias}.
+
+If this modification works, it would make the circuit consume $\frac{i_B}{10}\cdot V_{DD}$ less power, and should make the circuit smaller because it has less transistors.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/v3_bias.png}
+    \caption{Modified biasing circuit}
+    \label{fig:mod-bias}
+\end{figure}
+
+The AC and DC simulations were performed to the modified circuit, and the biasing state was maintained. Therefore, the AC simulation was analyzed and the results are shown in Table \ref{tab:AC-mod} and in the Bode diagram of Figure \ref{fig:bod-mod}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/v3_bode.png}
+    \caption{Bode diagram of the modified circuit}
+    \label{fig:bod-mod}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{AC simulation results}
+    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X }
+        \toprule
+        \textbf{Parameter} & \textbf{Result} \\
+        \midrule
+        DC Gain & \SI{66.89}{\decibel} \\
+        \midrule
+        Gain Bandwidth Product & \SI{105.5}{\mega\hertz}\\
+        \midrule
+        Phase Margin & \SI{40.96}{\degree}\\
+        \midrule
+        Output Swing & \SI{764.1}{\milli\volt}\\
+        \midrule
+        Power Dissipation & \SI{414}{\micro\watt}\\
+        \midrule
+        Excess-Noise Factor & 2.196 \\
+        \midrule
+        Figure of Merit & \SI{509.66}{\mega \hertz \cdot \pico \farad  / \milli \watt}\\
+        \bottomrule
+    \end{tabularx}
+    \label{tab:AC-mod}
+\end{table}
+
+The simplified layout was also performed for this circuit and the result is shown in Figure \ref{fig:area-mod}. The area occupied by the circuit was approximately \SI{1.62}{\nano\meter\squared}, which is less than the values calculated in the circuit studied.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Images/v3_layout.png}
+    \caption{Simplified layout of modified circuit}
+    \label{fig:area-mod}
+\end{figure}
+
+\subsubsection{Conclusion}
+For the parameters tested this modification works and even improves the $FoM$ value. Although, this does not mean that the modification should be performed. In order to evaluate wether or not to use this biasing circuit, a Power Supply Rejection Ration (PSRR) test should be perform as well as a Monte Carlo simulation. With $M_{B7}$ being biased by $M_{B5}$, could be problematic for layout, since they are not aligned in the circuit.

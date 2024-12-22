@@ -1,7 +1,7 @@
 \section{Introduction}
 
 This labwork goal is to design, optimize and simulate a Recycling Folded-Cascode (RFC) operational transconductance amplifier (OTA) circuit\textsuperscript{\cite{artigo-prof}}.
-The circuit was designed using the TSMC 65nm technology and the design was done using the Cadence Virtuoso software. In Figure \ref{fig:OTA_schematic} is the proposed circuit schematic.
+The circuit was designed using the TSMC 65nm technology and the simulation using the Cadence Virtuoso software. In Figure \ref{fig:OTA_schematic} is the proposed circuit schematic.
 
 \begin{figure}[H]
     \centering
@@ -19,13 +19,13 @@ The circuit was designed using the TSMC 65nm technology and the design was done 
         \midrule
         DC Gain & $A_{min}\geq \SI{66}{\decibel}$\\
         \midrule
-        Gain Bandwidth Product ($C_L = 2pF$) & $GBW\geq\SI{100}{\mega\hertz}$ \\
+        Gain Bandwidth Product ($C_L = \SI{2}{\pico\farad}$) & $GBW\geq\SI{100}{\mega\hertz}$ \\
         \midrule
         Second Pole Frequency & $f_{p2}>>\SI{200}{\mega\hertz}$ \\
         \midrule
         Third Pole Frequency & $f_{p3} \geq \SI{1}{\giga\hertz}$ \\
         \midrule
-        Output Swing ($V_{margin}=80mV$) & $OS\geq 0.5 V_{p.p}$ \\
+        Output Swing ($V_{margin}=\SI{80}{\milli\volt}$) & $OS\geq 0.5 V_{p.p}$ \\
         \midrule
         Channel Lengths & $\SI{180}{\nano\meter} \leq L's \leq \SI{1}{\micro\meter} $ \\
         \midrule
@@ -37,7 +37,7 @@ The circuit was designed using the TSMC 65nm technology and the design was done 
     \label{tab:goals}
 \end{table}
 
-The design was simulated, and the results were analyzed and compared to the theoretical values. The results were then used to calculate the merit of the circuit.
+The design was simulated, and the results were analyzed and compared to the theoretical values. The results were then used to calculate the merit of the circuit. The results were compared with those in Table \ref{tab:goals}, to ensure the specifications were met.
 
 \pagebreak
 

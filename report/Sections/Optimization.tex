@@ -53,10 +53,10 @@ Knowing this, a heatmap was plotted, Figure \ref{fig:GainHeatMap}. The heatmap p
     \label{fig:GainHeatMap}
 \end{figure}
 
-
+\pagebreak
 \subsection{Gain Bandwidth Product (GBW) analysis}
 \label{sec:GBWPython}
-Analogously to the subsection \ref{sec:DCGain}, to achieve the Gain Bandwidth Product (GBW) target of $\SI{100}{\mega\hertz}$, the devices and parameters that influence this performance metric must be identified. Using equation \ref{eq:GBW}, the table \ref{tab:GBWTransistors} was constructed.
+Analogously to the subsection \ref{sec:DCGain}, to achieve the Gain Bandwidth Product (GBW) target of $\SI{100}{\mega\hertz}$, the devices and parameters that influence this performance metric must be identified. Using equation \ref{eq:GBW}, the Table \ref{tab:GBWTransistors} was constructed.
 
 \begin{table}[H]
     \centering
@@ -97,7 +97,7 @@ Because for $V_{DSsat}$, devices $M_{1b}$ and $M_{2a}$ change the GBW value more
 
 \subsection{Pole Frequencies analysis}
 
-To ensure the OTA stability, particularly in closed loop, it is important to be able to shift the poles to higher frequencies in case they do not meet specification. That is why it is important to plot how the poles behave when change transistors parameters. It is also important to note that at this stage the order in which the poles appear is not obvious, because depending on the final devices characteristics, poles can switch place.  
+To ensure the OTA stability, particularly in closed loop, it is important to be able to shift the poles to higher frequencies in case they do not meet specification. That is why it is important to plot how the poles behave when change transistors parameters. It is also important to note that at this stage the order in which the poles appear is not obvious, because depending on the final devices characteristics, poles can switch places.  
 
 Because almost all poles depend on the $V_{DSsat}$ and $L_{size}$ of all devices that appear in it's equation, there was no distinction made between the devices in the $V_{DSsat}$ an $L_{size}$ plots.
 
@@ -145,7 +145,7 @@ Pole $z$ is generally in high frequencies as seen in Figure \ref{fig:PzPlot}, he
 \end{figure}
 
 Similarly to pole $z$, pole $w$, also should not be a problem for stability, but in some extreme cases it can be a problem, as depicted in Figure \ref{fig:PwPlot}, with very low $V_{DSsat}$ the pole frequency can reach the $\SI{200}{\mega\hertz}$ mark, but this region is easily avoided with a low $L_{size}$ and reasonable $V_{DSsat}$ for devices $M_{11}$ and $M_3$.
-
+\pagebreak
 \subsection{Output Swing (OS) analysis}
 
 
@@ -167,18 +167,18 @@ Evaluating equation \ref{eq:ENF}, we may conclude that the ENF value only depend
 
 
 Looking at equation \ref{eq:PD} we can see that the only factor that affects power consumption is the biasing current. Increasing this current only improves the GBW in a major way, hence this value was maintained at $\SI{100}{\micro\ampere}$ during the theoretical dimensioning.
-
+\pagebreak
 \subsection{Final Transistors Sizing}
 
-Before dimensioning all devices is important to define their relations as shown in equation \ref{eq:transRatio}. It is also important to define a group of transistors that are independent, meaning, which transistors sizes do not depend on the size of other transistors. This list of transistors will be the free variables and are shown in table \ref{tab:FreeMos}.
+Before dimensioning all devices is important to define their relations as shown in equation \ref{eq:transRatio}. It is also important to define a group of transistors that are independent, meaning, which transistors sizes do not depend on the size of other transistors. This list of transistors will be the free variables and are shown in Table \ref{tab:FreeMos}.
 
 \begin{align}
     \label{eq:transRatio}
-    M_{b1} & = M_{b2} = M_{b4} = \frac{M_9}{10}\\
-    M_{12} &= M_{13} = \frac{5}{2}\cdot M_{b5} = 5\cdot M_{6} = 5\cdot M_{5}\\
-    M_4 &= M_{3} = \frac{1}{5} \cdot M_{b6}\\
+    M_{B1} & = M_{B2} = M_{B4} = \frac{M_9}{10}\\
+    M_{12} &= M_{13} = \frac{5}{2}\cdot M_{B5} = 5\cdot M_{6} = 5\cdot M_{5}\\
+    M_4 &= M_{3} = \frac{1}{5} \cdot M_{B6}\\
     M_{10} &= M_{11}\\
-    M_{b3} & = M_{b7} \\
+    M_{B3} & = M_{B7} \\
     M_{1a} & = M_{1b} = M_{2a} = M_{2b} \\
     M_{7a} & = M_{8a} = 3 \cdot M_{7b} = 3 \cdot M_{8b}
 \end{align}
@@ -197,15 +197,15 @@ In order to simplify the reading of the equations \ref{eq:transRatio}, instead o
                                 >{\centering\arraybackslash}X
         }
         \toprule
-        $M_{1b}$ & $M_{3}$ & $M_{11}$ & $M_{5}$ & $M_{7a}$ & $M_{9}$ & $M_{b3}$ \\
+        $M_{1b}$ & $M_{3}$ & $M_{11}$ & $M_{5}$ & $M_{7a}$ & $M_{9}$ & $M_{B3}$ \\
         \bottomrule
     \end{tabularx}
     \label{tab:FreeMos}
 \end{table}
 
-As way to identify if the circuit meets the goals and constraints set in table \ref{tab:goals}, this values must be printed and are colour coded to identify if they meet specification. Then, all transistors sizes are printed with the finger number calculated to make introducing this values in cadence easier. 
+As way to identify if the circuit meets the goals and constraints set in Table \ref{tab:goals}, this values must be printed and are colour coded to identify if they meet specification. Then, all transistors sizes are printed with the finger number calculated to make introducing this values in cadence easier. 
 
-With the knowledge of how the circuit behaves, the devices dimensions must be finally selected. In order to have with a decent starting point, a simple optimization function was developed. This function works by iterating all devices from table \ref{tab:FreeMos}, and finding which combination of $V_{DSsat}$ and $L_{size}$ gave the best value for a second $FoM$ value, this different Figure of Merit is needed to take into account the output swing, gain and ENF, since the current value is not change in this function it is not taken into account for this second $FoM$. The final equation is equation \ref{eq:FoM2}. It is important to note that the function that calculates this value, returns a negative number if any of the specification is not met.
+With the knowledge of how the circuit behaves, the devices dimensions must be finally selected. In order to have with a decent starting point, a simple optimization function was developed. This function works by iterating all devices from Table \ref{tab:FreeMos}, and finding which combination of $V_{DSsat}$ and $L_{size}$ gave the best value for a second $FoM$ value, this different Figure of Merit is needed to take into account the output swing, gain and ENF, since the current value is not change in this function it is not taken into account for this second $FoM$. The final equation is equation \ref{eq:FoM2}. It is important to note that the function that calculates this value, returns a negative number if any of the specification is not met.
 
 \begin{equation}
     \label{eq:FoM2}
@@ -249,7 +249,7 @@ The final dimensions of the transistors were calculated using the python script 
     \label{tab:WL-teo}
 \end{table}
 
-The final values for each transistor $V_{DSsat}$ and $I_D$ current can be found in table \ref{tab:TeoVDSsatId}.
+The final values for each transistor $V_{DSsat}$ and $I_D$ current can be found in Table \ref{tab:TeoVDSsatId}.
 
 \begin{table}[H]
     \centering
