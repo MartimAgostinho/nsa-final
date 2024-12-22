@@ -184,7 +184,7 @@ The output-swing of the amplifier can be obtained by the following expression:
 \subsection{Excess-Noise Factor}
 The Excess-Noise factor is the additional noise created by an amplifier with gain $A_v$. An amplifier with excess noise of 1 means that the intrinsic noise is multiplied by 1 therefore, the noise is not made any worse, but any value over 1 means the noise is increased due to the gain.
 
-The amplifier's excess noise factor was studied for only half of the circuit. Bearing in mind that in cascode configurations the common-gate transistors do not generate noise because they cannot impose current on the circuit, the value for Excess-Noise factor $\Gamma$ is given by the following equation:
+The amplifier's excess noise factor was studied for only half of the circuit. Bearing in mind that in cascode configurations the common-gate transistors do not generate noise because they cannot impose current on the circuit, the value for Excess-Noise factor $\Gamma$ is given by the following equation\textsuperscript{\cite{artigo-prof}}:
 
 \begin{equation}
     \Gamma = 1 + \frac{3}{4}\cdot \frac{gm_{7a}}{gm_{2a}} + \frac{1}{4}\cdot \frac{gm_{11}}{gm_{2a}} \ [\Omega ^{-1} / \Omega ^{-1}]
@@ -198,13 +198,13 @@ Its intended that the power dissipation $P_D$ is minimized in order to have the 
 
 Where: 
 \begin{equation}
-    P_D = V_{DD} \times \left(2 \times I_B + \dfrac{I_B\cdot 4}{10}\right) \ [W]
+    P_D = V_{DD} \cdot \left(2 \cdot I_B + \dfrac{I_B\cdot 4}{10}\right) \ [W]
     \label{eq:PD}
 \end{equation}
 
 \subsection{Figure of Merit (FoM)}
- We will also need to achieve the best possible figure-of-merit FoM defined by: 
+ We will also need to achieve the best possible figure-of-merit FoM defined by\textsuperscript{\cite{Lab-statement}}: 
 \begin{equation}
-    FoM = \frac{GBW \times C_L}{P_D} \ [MHz \cdot pF/mW]
+    FoM = \frac{1000 \cdot GBW \cdot C_L}{P_D} \ [MHz \cdot pF/mW]
     \label{eq:FoM}
 \end{equation}

@@ -4,7 +4,7 @@ The dimensioning process involves optimizing the Recycling Folded-Cascode (RFC) 
 
 In order to have a more modular script three dictionaries were created to save all transistors characteristics and a list with all transistors names making the list iterable.
 
-As a starting point all transistors sizes were set to have length of $\SI{600}{\nano\meter}$ and a $V_{DSsat} = \SI{100}{\milli\volt}$, to ensure the devices were operating in the moderate inversion region, as specified in table \ref{tab:goals}. Then the gain equation was analysed in order to find the transistors affected this value.
+As a starting point all transistors sizes were set to have length of $\SI{600}{\nano\meter}$ and a $V_{DSsat} = \SI{100}{\milli\volt}$, to ensure the devices were operating in the moderate inversion region, as specified in Table \ref{tab:goals}. Then the gain equation was analyzed in order to find the transistors affected this value.
 
 \subsection{DC gain analysis}
 \label{sec:DCGain}
@@ -47,7 +47,7 @@ To visualize how each parameter influence the gain value independently, the gain
 
 As shown by Figure \ref{fig:GainVariation}, the parameters that are more relevant are, $M_{5}$ and $M_{1b}$ $V_{DSsat}$ and $M_{5}$ and $M_{7a}$ length size.
 
-Knowing this, a heatmap was plotted, Figure \ref{fig:GainHeatMap}. The heatmap provides a more complete picture by displaying the combined influence of both variables on the gain function. Each cell in the heatmap corresponds to a specific pair of values for the two variables, with the colour intensity indicating the resulting gain.
+Knowing this, a heatmap was plotted, Figure \ref{fig:GainHeatMap}. The heatmap provides a more complete picture by displaying the combined influence of both variables on the gain function. Each cell in the heatmap corresponds to a specific pair of values for the two variables, with the color intensity indicating the resulting gain.
 
 \begin{figure}[H]
     \centering
@@ -83,7 +83,7 @@ Analogously to the subsection \ref{sec:DCGain}, to achieve the Gain Bandwidth Pr
     \label{tab:GBWTransistors}
 \end{table}
 
-Again to visualise how each parameter influence the GBW independently, the GBW function was plotted varying each parameter at a time, yielding Figure \ref{fig:GBWVariation}.
+Again to visualize how each parameter influence the GBW independently, the GBW function was plotted varying each parameter at a time, yielding Figure \ref{fig:GBWVariation}.
 
 \begin{figure}[H]
     \centering
