@@ -4,7 +4,7 @@ In this section is presented the simulation of the design obtained from the prev
 
 The first step was to simulate the circuit with the transistors specifications obtained from the optimization process. Subsequently, was performed a fine-tuning of the circuit to improve the results by performing the value sweep of the most critical transistors.
 
-The schematic of the circuit obtained in Cadence is shown in Figure \ref{fig:WL}. The final values of the transistors are shown in Table \ref{tab:WL}.
+The schematic of the circuit obtained in Cadence is shown in Figure \ref{fig:WL}. The final values of the transistors are shown in Table \ref{tab:WL} and the values denoted in red are the ones altered in simulation to meet the goals and constraints.
 
 \begin{figure}[H]
     \centering
@@ -129,16 +129,16 @@ Observing the currents in the transistors of the main circuit, it is possible to
         \midrule
         $M_{9}$ & \SI{-139}{\milli\volt} & \SI{-150.8}{\micro\ampere}\\
         \midrule
-        $M_{10}$ & \SI{-69.86}{\milli\volt} & \textcolor{red}{\SI{-20.68}{\micro\ampere}}\\
+        $M_{10}$ & \SI{-69.86}{\milli\volt} & \SI{-20.68}{\micro\ampere}\\
         \midrule
-        $M_{11}$ & \SI{-69.86}{\milli\volt} & \textcolor{red}{\SI{-21.61}{\micro\ampere}}\\
+        $M_{11}$ & \SI{-69.86}{\milli\volt} & \SI{-21.61}{\micro\ampere}\\
         \midrule
         $M_{12}$ & \SI{123.9}{\milli\volt} & \SI{37.55}{\micro\ampere}\\
         \midrule
         $M_{13}$ & \SI{124.3}{\milli\volt} & \SI{37.99}{\micro\ampere}\\
         \bottomrule
     \end{tabularx}
-    \label{tab:DC-RFC}
+    \label{tab:DC-RFC} 
 \end{table}
 
 \subsection{AC Simulation}
@@ -191,3 +191,6 @@ A simplified layout of the circuit was performed to verify the area occupied by 
 \end{figure}
 
 The area occupied by the circuit was approximately \SI{1.68}{\nano\meter\squared}, which is a fairly good result for this circuit.
+
+\subsection{Improvement proposal of biasing circuit}
+

@@ -2,21 +2,37 @@
 
 In this section, the results obtained from the simulation of the OTA circuit are presented and analyzed. The results are compared with the theoretical values.
 
-Analyzing the DC simulation, it was detected an error in the current of transistors $M_{10}$ and $M_{11}$. Observing the simulation process the error could not be detected, but was found in the Python script that was used to extract the values for the simulations. The error was in the calculation of the width of the transistors, which was calculated with $I_B/4$ instead of $I_B/2$ as it should be. This error was corrected, and the theoretical values were recalculated and are shown in Tables \ref{tab:DC-corrected} and \ref{tab:sizes corrected}.
+Analyzing the DC simulation, it was detected an error in the current of transistors $M_{10}$ and $M_{11}$. Observing the simulation process the error could not be detected, but was found in the Python script that was used to extract the values for the simulations. The error was in the calculation of the width of the transistors, which was calculated with $I_B/4$ instead of $I_B/2$ as it should be. This error was corrected, and the theoretical values were recalculated and the new ones are shown in Tables \ref{tab:DC-corrected} and \ref{tab:sizes corrected}.
 
 \begin{table}[H]
     \centering
-    \caption{Transistors theoretical sizes after correction}
-    \label{tab:sizes corrected}
+    \caption{Transistors new sizes with fixed current}
+    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash} X >{\centering\arraybackslash}X}
+        \toprule
+        \textbf{Transistor} & \textbf{Width (W)} & \textbf{Length (L)} & \textbf{Fingers}\\
+        \midrule
+        $M_{10}, \ M_{11}$ & \textcolor{red}{\SI{9.47}{\micro\meter} } & \SI{600}{\nano\meter} & 18\\
+        \bottomrule
+    \end{tabularx}
+    \label{tab:WL-teo-fix}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Transistors theoretical DC OP after correction}
+    \caption{Theoretical values for $V_{DSsat}$ and $I_D$ with fixed current for $I_B = \SI{100}{\milli\ampere}$ }
+    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+        \toprule
+        \textbf{Transistor} & \textbf{$V_{DSat}$} & \textbf{$I_D$}\\
+        \midrule
+        $M_{10}$ & \SI{-50}{\milli\volt} & \SI{-50}{\micro\ampere}\\
+        \midrule
+        $M_{11}$ & \SI{-50}{\milli\volt} & \SI{-50}{\micro\ampere}\\
+        \bottomrule
+    \end{tabularx}
     \label{tab:DC-corrected}
 \end{table}
 
-Nevertheless, the results obtained from the DC simulation were expected after encountering the error. As the $M_{10}$ and $M_{11}$ transistors were sized for a current of $I_B/4$, this current was propagated to the other transistors connected to them. This caused the values of the currents to be lower than expected in the transistors $M_3$, $M_4$, $M_5$, $M_6$, $M_{7a}$, $M_{8a}$, $M_{10}$ as shown in table \ref{tab:DC-RFC}.
+Nevertheless, the results obtained from the DC simulation were expected after encountering the error. As the $M_{10}$ and $M_{11}$ transistors were sized for a current of $I_B/4$, this current was propagated to the other transistors connected to them. This caused the values of the currents to be lower than expected in the transistors $M_3$, $M_4$, $M_5$, $M_6$, $M_{7a}$, $M_{8a}$, $M_{10}$ as shown in table \ref{tab:DC-RFC}. Another factor that contributes for the diminish of the currents in this transistors is the body effect present in them, which was considered a constant in theoretical analysis.
 
 The AC simulation performed showed acceptable values for the goals and constraints defined in the previous sections, even with the error in the biasing of the transistors.
 
