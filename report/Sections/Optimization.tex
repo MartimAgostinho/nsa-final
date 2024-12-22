@@ -103,9 +103,9 @@ Because for $V_{DSsat}$, devices $M_{1b}$ and $M_{2a}$ change the GBW value more
 
 \subsection{Pole Frequencies analysis}
 
-Because almost all poles depend on the $V_{DSsat}$ and $L_{size}$ of all devices that appear in it's equation, there was no distinction made between the devices in the $V_{DSsat}$ an $L_{size}$ plots.
+To ensure the OTA stability, particularly in closed loop, it is important to be able to shift the poles to higher frequencies in case they do not meet specification. That is why it is important to plot how the poles behave when change transistors parameters. It is also important to note that at this stage the order in which the poles appear is not obvious, because depending on the final devices characteristics, poles can switch place.  
 
-\textcolor{red}{PAO sq dizer cena da estabilidade e cena da ordem}
+Because almost all poles depend on the $V_{DSsat}$ and $L_{size}$ of all devices that appear in it's equation, there was no distinction made between the devices in the $V_{DSsat}$ an $L_{size}$ plots.
 
 \begin{figure}[H]
     \centering
@@ -123,12 +123,16 @@ For the first it is the least relevant, since it only affects GBW and that param
     \label{fig:PxPlot}
 \end{figure}
 
+As seen in Figure \ref{fig:PxPlot}, $M_{2a}$ $V_{DSsat}$ and $M_5$ $L_{size}$ are the characteristics that affect the pole $x$ frequency the most. It is also important to note that the pole frequency is not linear with the $M_5$ $V_{DSsat}$.  
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Images/PyPlot.png}
     \caption{Pole $y$ as a function of $V_{DSsat}$ and $L_{size}$}
     \label{fig:PyPlot}
 \end{figure}
+
+For pole $y$ the most important device is $M_{7a}$, as seen in Figure \ref{fig:PyPlot}, this will be relevant later since this is also one of the most important devices for gain.
 
 \begin{figure}[H]
     \centering
@@ -137,6 +141,8 @@ For the first it is the least relevant, since it only affects GBW and that param
     \label{fig:PzPlot}
 \end{figure}
 
+Pole $z$ is generally in high frequencies as seen in Figure \ref{fig:PzPlot}, hence, this poles should not influence the OTA stability.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Images/PwPlot.png}
@@ -144,10 +150,11 @@ For the first it is the least relevant, since it only affects GBW and that param
     \label{fig:PwPlot}
 \end{figure}
 
-
-
+Similarly to pole $z$, pole $w$, also should not be a problem for stability, but in some extreme cases it can be a problem, as depicted in Figure \ref{fig:PwPlot}, with very low $V_{DSsat}$ the pole frequency can reach the $\SI{200}{\mega\hertz}$ mark, but this region is easily avoided with a low $L_{size}$ and reasonable $V_{DSsat}$ for devices $M_{11}$ and $M_3$.
 
 \subsection{Output Swing (OS) analysis}
+
+
 
 \subsection{Excess-Noise Factor (ENF) analysis}
 
