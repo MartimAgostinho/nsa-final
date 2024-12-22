@@ -175,6 +175,37 @@ dizer que fizemos um algoritmo no python para chegar aos valores otimos dos tran
 
 \subsection{Final Transistors Sizing}
 
+Before dimensioning all devices is important to identify which transistors are independent, meaning, which transistors sizes do not depend on the size of other transistors. This list of transistors will be the free variables and are shown in table \ref{tab:FreeMos}.
+
+
+\begin{table}[h]
+    \centering
+    \caption{Independent transistors.}
+    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X 
+                                >{\centering\arraybackslash}X 
+                                >{\centering\arraybackslash}X  
+                                >{\centering\arraybackslash}X
+                                >{\centering\arraybackslash}X
+                                >{\centering\arraybackslash}X
+                                >{\centering\arraybackslash}X
+                                >{\centering\arraybackslash}X
+        }
+        \toprule
+        $M_{1b}$ & $M_{2a}$ & $M_{3}$ & $M_{11}$ & $M_{5}$ & $M_{7a}$ & $M_{9}$ & $M_{b3}$ \\
+        \bottomrule
+    \end{tabularx}
+    \label{tab:FreeMos}
+\end{table}
+
+As way to identify if the circuit meets the goals and constraints set in table \ref{tab:goals}, this values must be printed and are colour coded to identify if they meet specification. Then, all transistors sizes are printed with the finger number calculated to make introducing this values in cadence easier. 
+
+With the knowledge of how the circuit behaves, the devices dimensions must be finally selected. In order to have with a decent starting point, a simple optimization function was developed. This function works by iterating all devices from table \ref{tab:FreeMos}, and finding which combination of $V_{DSsat}$ and $L_{size}$ gave the best value for a second $FoM$ value, this different Figure of Merit is needed to take into account the output swing, gain and ENF, since the current value is not change in this function it is not taken into account for this second $FoM$. The final equation is equation \ref{eq:FoM2}. It is important to note that the function that calculates this value, returns a negative number if any of the specification is not met.
+
+\begin{equation}
+    \label{eq:FoM2}
+    FoM_2 = \frac{GBW\cdot OS \cdot Gain}{ENF}
+\end{equation}
+
 The final dimensions of the transistors were calculated using the python script and are shown in Table \ref{tab:WL-teo}.
 
 \begin{table}[H]
@@ -212,36 +243,131 @@ The final dimensions of the transistors were calculated using the python script 
     \label{tab:WL-teo}
 \end{table}
 
+The final values for each transistor $V_{DSsat}$ and $I_D$ current can be found in table \ref{tab:TeoVDSsatId}.
 
-Before dimensioning all devices is important to identify which transistors are independent, meaning, which transistors sizes do not depend on the size of other transistors. This list of transistors will be the free variables and are shown in table \ref{tab:FreeMos}.
-
-
-\begin{table}[h]
+\begin{table}[H]
     \centering
-    \caption{Independent transistors.}
-    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X 
-                                >{\centering\arraybackslash}X 
-                                >{\centering\arraybackslash}X  
-                                >{\centering\arraybackslash}X
-                                >{\centering\arraybackslash}X
-                                >{\centering\arraybackslash}X
-                                >{\centering\arraybackslash}X
-                                >{\centering\arraybackslash}X
-        }
+    \caption{Theoretical values for $V_{DSsat}$ and $I_D$}
+    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
         \toprule
-        $M_{1b}$ & $M_{2a}$ & $M_{3}$ & $M_{11}$ & $M_{5}$ & $M_{7a}$ & $M_{9}$ & $M_{b3}$ \\
+        \textbf{Transistor} & \textbf{$V_{DSat}$} & \textbf{$I_D$}\\
+        \midrule
+        $M_{1a}$ & \SI{-50}{\milli\volt} & \SI{-25}{\micro\ampere}\\
+        \midrule
+        $M_{1b}$ & \SI{-50}{\milli\volt} & \SI{-25}{\micro\ampere}\\
+        \midrule
+        $M_{2a}$ & \SI{-50}{\milli\volt} & \SI{-25}{\micro\ampere}\\
+        \midrule
+        $M_{2b}$ & \SI{-50}{\milli\volt} & \SI{-25}{\micro\ampere}\\
+        \midrule
+        $M_{3}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-50}{\micro\ampere}}\\
+        \midrule
+        $M_{4}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-50}{\micro\ampere}}\\
+        \midrule
+        $M_{5}$ & \SI{100}{\milli\volt} & \textcolor{red}{\SI{50}{\micro\ampere}}\\
+        \midrule
+        $M_{6}$ & \SI{100}{\milli\volt} & \textcolor{red}{\SI{50}{\micro\ampere}}\\
+        \midrule
+        $M_{7a}$ & \SI{60}{\milli\volt} & \textcolor{red}{\SI{75}{\micro\ampere}}\\
+        \midrule
+        $M_{7b}$ & \SI{60}{\milli\volt} & \SI{25}{\micro\ampere}\\
+        \midrule
+        $M_{8a}$ & \SI{60}{\milli\volt} & \textcolor{red}{\SI{75}{\micro\ampere}}\\
+        \midrule
+        $M_{8b}$ & \SI{60}{\milli\volt} & \SI{25}{\micro\ampere}\\
+        \midrule
+        $M_{9}$ & \SI{100}{\milli\volt} & \SI{-100}{\micro\ampere}\\
+        \midrule
+        $M_{10}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-25}{\micro\ampere}}\\
+        \midrule
+        $M_{11}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-25}{\micro\ampere}}\\
+        \midrule
+        $M_{12}$ & \SI{100}{\milli\volt} & \SI{25}{\micro\ampere}\\
+        \midrule
+        $M_{13}$ & \SI{100}{\milli\volt} & \SI{25}{\micro\ampere}\\
         \bottomrule
     \end{tabularx}
-    \label{tab:FreeMos}
+    \label{tab:TeoVDSsatId}
 \end{table}
 
-As way to identify if the circuit meets the goals and constraints set in table \ref{tab:goals}, this values must be printed and are colour coded to identify if they meet specification. Then, all transistors sizes are printed with the finger number calculated to make introducing this values in cadence easier. 
 
-With the knowledge of how the circuit behaves, the devices dimensions must be finally selected. In order to have with a decent starting point, a simple optimization function was developed. This function works by iterating all devices from table \ref{tab:FreeMos}, and finding which combination of $V_{DSsat}$ and $L_{size}$ gave the best value for a second $FoM$ value, this different Figure of Merit is needed to take into account the output swing, gain and ENF, since the current value is not change in this function it is not taken into account for this second $FoM$. The final equation is equation \ref{eq:FoM2}. It is important to note that the function that calculates this value, returns a negative number if any of the specification is not met.
+\begin{table}[H]
+    \centering
+    \caption{Theoretical values for $V_{DSsat}$ and $I_D$ with fixed current}
+    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+        \toprule
+        \textbf{Transistor} & \textbf{$V_{DSat}$} & \textbf{$I_D$}\\
+        \midrule
+        $M_{1a}$ & \SI{-50}{\milli\volt} & \SI{-25}{\micro\ampere}\\
+        \midrule
+        $M_{1b}$ & \SI{-50}{\milli\volt} & \SI{-25}{\micro\ampere}\\
+        \midrule
+        $M_{2a}$ & \SI{-50}{\milli\volt} & \SI{-25}{\micro\ampere}\\
+        \midrule
+        $M_{2b}$ & \SI{-50}{\milli\volt} & \SI{-25}{\micro\ampere}\\
+        \midrule
+        $M_{3}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-50}{\micro\ampere}}\\
+        \midrule
+        $M_{4}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-50}{\micro\ampere}}\\
+        \midrule
+        $M_{5}$ & \SI{100}{\milli\volt} & \textcolor{red}{\SI{50}{\micro\ampere}}\\
+        \midrule
+        $M_{6}$ & \SI{100}{\milli\volt} & \textcolor{red}{\SI{50}{\micro\ampere}}\\
+        \midrule
+        $M_{7a}$ & \SI{60}{\milli\volt} & \textcolor{red}{\SI{75}{\micro\ampere}}\\
+        \midrule
+        $M_{7b}$ & \SI{60}{\milli\volt} & \SI{25}{\micro\ampere}\\
+        \midrule
+        $M_{8a}$ & \SI{60}{\milli\volt} & \textcolor{red}{\SI{75}{\micro\ampere}}\\
+        \midrule
+        $M_{8b}$ & \SI{60}{\milli\volt} & \SI{25}{\micro\ampere}\\
+        \midrule
+        $M_{9}$ & \SI{100}{\milli\volt} & \SI{-100}{\micro\ampere}\\
+        \midrule
+        $M_{10}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-50}{\micro\ampere}}\\
+        \midrule
+        $M_{11}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-50}{\micro\ampere}}\\
+        \midrule
+        $M_{12}$ & \SI{100}{\milli\volt} & \SI{25}{\micro\ampere}\\
+        \midrule
+        $M_{13}$ & \SI{100}{\milli\volt} & \SI{25}{\micro\ampere}\\
+        \bottomrule
+    \end{tabularx}
+    \label{tab:TeoVDSsatIdFix}
+\end{table}
 
-\begin{equation}
-    \label{eq:FoM2}
-    FoM_2 = \frac{GBW\cdot OS \cdot Gain}{ENF}
-\end{equation}
 
+\begin{table}[H]
+    \centering
+    \caption{Transistors with fixed current}
+    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash} X >{\centering\arraybackslash}X}
+        \toprule
+        \textbf{Transistor} & \textbf{Width (W)} & \textbf{Length (L)} & \textbf{Fingers}\\
+        \midrule
+        $M_{B1}, \ M_{B2}, \ M_{B4}$ & \SI{2.84}{\micro\meter} & \SI{180}{\nano\meter} &  1\\
+        \midrule
+        $M_{B3}, \ M_{B7}$ & \SI{1.69}{\micro\meter} & \SI{180}{\nano\meter} & 1\\
+        \midrule
+        $M_{B5}$ & \SI{6.48}{\micro\meter} & \SI{800}{\nano\meter} & 1\\
+        \midrule
+        $M_{B6}$ & \SI{8.52}{\micro\meter} & \SI{600}{\nano\meter} & 4\\
+        \midrule
+        $M_{1a}, \ M_{2a}, \ M_{1b}, \ M_{2b}$ & \SI{9.47}{\micro\meter} & \SI{400}{\nano\meter} & 6\\
+        \midrule
+        $M_{3}, \ M_{4}$ & \SI{7.7425}{\micro\meter} & \SI{200}{\nano\meter} & 8\\
+        \midrule
+        $M_{5}, \ M_{6}$ & \SI{8.17}{\micro\meter} & \SI{800}{\nano\meter} & 4\\
+        \midrule
+        $M_{7a}, \ M_{8a}$ & \SI{8.505}{\micro\meter} & \SI{500}{\nano\meter} & 10\\
+        \midrule
+        $M_{7b}, \ M_{8b}$ & \SI{5.89}{\micro\meter} & \SI{180}{\nano\meter} & 2\\
+        \midrule
+        $M_{9}$ & \SI{6.9675}{\micro\meter} & \SI{180}{\nano\meter} & 4\\
+        \midrule
+        $M_{10}, \ M_{11}$ & \textcolor{red}{\SI{9.47}{\micro\meter} } & \SI{600}{\nano\meter} & 18\\
+        \midrule
+        $M_{12}, \ M_{13}$ & \SI{4.24}{\micro\meter} & \SI{180}{\nano\meter} & 1\\
+        \bottomrule
+    \end{tabularx}
+    \label{tab:WL-teo-fix}
 \end{table}
