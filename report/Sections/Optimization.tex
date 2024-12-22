@@ -64,7 +64,7 @@ Analogously to the subsection \ref{sec:DCGain}, to achieve the Gain Bandwidth Pr
 %TODO REF NA EQUACAO DO GANHO
 %Using equation \ref{eq:GBW}, the table \ref{tab:GBWTransistors} was constructed.
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{Transistor's characteristics that affect gain}
     \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
@@ -170,6 +170,48 @@ Evaluating equation \ref{eq:ENF}, we may conclude that the ENF value only depend
 \subsection{Power Consumption analysis}
 
 \subsection{Merit Figure and Results}
+
+\subsection{Dimensioning Strategy}
+
+\subsection{Final Transistors Sizing}
+
+The final dimensions of the transistors were calculated using the python script and are shown in Table \ref{tab:WL-teo}.
+
+\begin{table}[H]
+    \centering
+    \caption{Transistors theoretical final dimensions}
+    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash} X >{\centering\arraybackslash}X}
+        \toprule
+        \textbf{Transistor} & \textbf{Width (W)} & \textbf{Length (L)} & \textbf{Fingers}\\
+        \midrule
+        $M_{B1}, \ M_{B2}, \ M_{B4}$ & \SI{2.84}{\micro\meter} & \SI{180}{\nano\meter} &  1\\
+        \midrule
+        $M_{B3}, \ M_{B7}$ & \SI{1.69}{\micro\meter} & \SI{180}{\nano\meter} & 1\\
+        \midrule
+        $M_{B5}$ & \SI{6.48}{\micro\meter} & \SI{800}{\nano\meter} & 1\\
+        \midrule
+        $M_{B6}$ & \SI{34.08}{\micro\meter} & \SI{600}{\nano\meter} & 1\\
+        \midrule
+        $M_{1a}, \ M_{2a}, \ M_{1b}, \ M_{2b}$ & \SI{9.465}{\micro\meter} & \SI{400}{\nano\meter} & 6\\
+        \midrule
+        $M_{3}, \ M_{4}$ & \SI{7.7425}{\micro\meter} & \SI{200}{\nano\meter} & 8\\
+        \midrule
+        $M_{5}, \ M_{6}$ & \SI{8.15}{\micro\meter} & \SI{800}{\nano\meter} & 4\\
+        \midrule
+        $M_{7a}, \ M_{8a}$ & \SI{8.505}{\micro\meter} & \SI{500}{\nano\meter} & 10\\
+        \midrule
+        $M_{7b}, \ M_{8b}$ & \SI{5.89}{\micro\meter} & \SI{180}{\nano\meter} & 2\\
+        \midrule
+        $M_{9}$ & \SI{6.9675}{\micro\meter} & \SI{180}{\nano\meter} & 4\\
+        \midrule
+        $M_{10}, \ M_{11}$ & \SI{8.519}{\micro\meter} & \SI{600}{\nano\meter} & 10\\
+        \midrule
+        $M_{12}, \ M_{13}$ & \SI{4.24}{\micro\meter} & \SI{180}{\nano\meter} & 1\\
+        \bottomrule
+    \end{tabularx}
+    \label{tab:WL-teo}
+\end{table}
+
 
 Before dimensioning all devices is important to identify which transistors are independent, meaning, which transistors sizes do not depend on the size of other transistors. This list of transistors will be the free variables and are shown in table \ref{tab:FreeMos}.
 
