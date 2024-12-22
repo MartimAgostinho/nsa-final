@@ -158,6 +158,48 @@ Similarly to pole $z$, pole $w$, also should not be a problem for stability, but
 
 \subsection{Excess-Noise Factor (ENF) analysis}
 
+Evaluating equation \ref{eq:ENF}, we may conclude that the ENF value only depends on the $V_{DSsat}$ of devices $M_{7a}$,$M_{2a}$ and $M_{11}$. By evaluating Figure \ref{fig:enfVariation} the device that affects ENF more predominantly is $M_{2a}$, this device $V_{DSsat}$ must be relatively small.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/enfVariation.png}
+    \caption{Excess-Noise Factor as function of $V_{DSsat}$}
+    \label{fig:enfVariation}
+\end{figure}
+
 \subsection{Power Consumption analysis}
 
 \subsection{Merit Figure and Results}
+
+Before dimensioning all devices is important to identify which transistors are independent, meaning, which transistors sizes do not depend on the size of other transistors. This list of transistors will be the free variables and are shown in table \ref{tab:FreeMos}.
+
+
+\begin{table}[h]
+    \centering
+    \caption{Independent transistors.}
+    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X 
+                                >{\centering\arraybackslash}X 
+                                >{\centering\arraybackslash}X  
+                                >{\centering\arraybackslash}X
+                                >{\centering\arraybackslash}X
+                                >{\centering\arraybackslash}X
+                                >{\centering\arraybackslash}X
+                                >{\centering\arraybackslash}X
+        }
+        \toprule
+        $M_{1b}$ & $M_{2a}$ & $M_{3}$ & $M_{11}$ & $M_{5}$ & $M_{7a}$ & $M_{9}$ & $M_{b3}$ \\
+        \bottomrule
+    \end{tabularx}
+    \label{tab:FreeMos}
+\end{table}
+
+As way to identify if the circuit meets the goals and constraints set in table \ref{tab:goals}, this values must be printed and are colour coded to identify if they meet specification. Then, all transistors sizes are printed with the finger number calculated to make introducing this values in cadence easier. 
+
+With the knowledge of how the circuit behaves, the devices dimensions must be finally selected. In order to have with a decent starting point, a simple optimization function was developed. This function works by iterating all devices from table \ref{tab:FreeMos}, and finding which combination of $V_{DSsat}$ and $L_{size}$ gave the best value for a second $FoM$ value, this different Figure of Merit is needed to take into account the output swing, gain and ENF, since the current value is not change in this function it is not taken into account for this second $FoM$. The final equation is equation \ref{eq:FoM2}. It is important to note that the function that calculates this value, returns a negative number if any of the specification is not met.
+
+\begin{equation}
+    \label{eq:FoM2}
+    FoM_2 = \frac{GBW\cdot OS \cdot Gain}{ENF}
+\end{equation}
+
+\end{table}
