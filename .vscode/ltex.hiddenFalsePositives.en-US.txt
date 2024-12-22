@@ -1,0 +1,1 @@
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QThis could be improved by further optimization of the circuit, but for the purposes of this labwork, the results are acceptable.\\E$"}

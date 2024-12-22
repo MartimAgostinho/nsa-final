@@ -13,7 +13,7 @@ The schematic of the circuit obtained in Cadence is shown in Figure \ref{fig:WL}
     \label{fig:WL}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{Transistors final dimensions}
     \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash} X >{\centering\arraybackslash}X}
@@ -53,14 +53,16 @@ After the schematic was completed and verified, the symbol of the circuit was cr
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{Images/tb.png}
+    \includegraphics[width=0.4\textwidth]{Images/tb.png}
     \caption{Symbol of the circuit in Cadence.}
     \label{fig:Symbol}
 \end{figure}
 
 \subsection{DC Simulation}
 
-The DC simulation was performed to verify the biasing of the circuit, in Figure \ref{fig:DC} is shown the results obtained. The results were also compiled in Table \ref{tab:DC} and Table \ref{tab:DC-RFC}.
+The DC simulation was performed to verify the biasing of the circuit, in Figure \ref{fig:DC} is shown the results obtained. The results were also compiled in Table \ref{tab:DC} and Table \ref{tab:DC-RFC}. All the transistors are in the moderate inversion region, except for transistors $M_{B5}$ and $M_{B6}$ that are in the weak inversion region. This is not a problem since the transistors are used as current sources and the current is not affected by the region of operation.
+
+Observing the currents in the transistors of the main circuit, it is possible to verify that some currents are not in the desired point, denoted in red on Table \ref{tab:DC-RFC}. This is due to the fact that the transistors are not ideal, and the currents are affected by the transistors' dimensions and the biasing circuit. This fact is not a major problem since the circuit is working as expected and the currents are reasonable for the circuit to work properly, however the topology is not being used as its full potential. This could be improved by further optimization of the circuit, but for the purposes of this labwork, the results are acceptable.
 
 \begin{figure}[H]
     \centering
@@ -69,7 +71,7 @@ The DC simulation was performed to verify the biasing of the circuit, in Figure 
     \label{fig:DC}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{DC simulation results biasing circuit}
     \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
@@ -94,12 +96,12 @@ The DC simulation was performed to verify the biasing of the circuit, in Figure 
     \label{tab:DC}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{DC simulation results main circuit}
     \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
         \toprule
-        \textbf{Transistor} & \textbf{$V_{DSat}$} & \textbf{$I_B$}\\
+        \textbf{Transistor} & \textbf{$V_{DSat}$} & \textbf{$I_D$}\\
         \midrule
         $M_{1a}$ & \SI{-67.98}{\milli\volt} & \SI{-37.8}{\micro\ampere}\\
         \midrule
@@ -109,27 +111,27 @@ The DC simulation was performed to verify the biasing of the circuit, in Figure 
         \midrule
         $M_{2b}$ & \SI{-67.78}{\milli\volt} & \SI{-37.55}{\micro\ampere}\\
         \midrule
-        $M_{3}$ & \SI{-66.74}{\milli\volt} & \SI{-21.61}{\micro\ampere}\\
+        $M_{3}$ & \SI{-66.74}{\milli\volt} & \textcolor{red}{\SI{-21.61}{\micro\ampere}}\\
         \midrule
-        $M_{4}$ & \SI{-107.1}{\milli\volt} & \SI{-20.68}{\micro\ampere}\\
+        $M_{4}$ & \SI{-107.1}{\milli\volt} & \textcolor{red}{\SI{-20.68}{\micro\ampere}}\\
         \midrule
-        $M_{5}$ & \SI{70.61}{\milli\volt} & \SI{21.61}{\micro\ampere}\\
+        $M_{5}$ & \SI{70.61}{\milli\volt} & \textcolor{red}{\SI{21.61}{\micro\ampere}}\\
         \midrule
-        $M_{6}$ & \SI{68.54}{\milli\volt} & \SI{20.68}{\micro\ampere}\\
+        $M_{6}$ & \SI{68.54}{\milli\volt} & \textcolor{red}{\SI{20.68}{\micro\ampere}}\\
         \midrule
-        $M_{7a}$ & \SI{69.2}{\milli\volt} & \SI{59.06}{\micro\ampere}\\
+        $M_{7a}$ & \SI{69.2}{\milli\volt} & \textcolor{red}{\SI{59.06}{\micro\ampere}}\\
         \midrule
         $M_{7b}$ & \SI{66.09}{\milli\volt} & \SI{37.99}{\micro\ampere}\\
         \midrule
-        $M_{8a}$ & \SI{68.97}{\milli\volt} & \SI{58.48}{\micro\ampere}\\
+        $M_{8a}$ & \SI{68.97}{\milli\volt} & \textcolor{red}{\SI{58.48}{\micro\ampere}}\\
         \midrule
         $M_{8b}$ & \SI{65.93}{\milli\volt} & \SI{37.55}{\micro\ampere}\\
         \midrule
         $M_{9}$ & \SI{-139}{\milli\volt} & \SI{-150.8}{\micro\ampere}\\
         \midrule
-        $M_{10}$ & \SI{-69.86}{\milli\volt} & \SI{-20.68}{\micro\ampere}\\
+        $M_{10}$ & \SI{-69.86}{\milli\volt} & \textcolor{red}{\SI{-20.68}{\micro\ampere}}\\
         \midrule
-        $M_{11}$ & \SI{-69.86}{\milli\volt} & \SI{-21.61}{\micro\ampere}\\
+        $M_{11}$ & \SI{-69.86}{\milli\volt} & \textcolor{red}{\SI{-21.61}{\micro\ampere}}\\
         \midrule
         $M_{12}$ & \SI{123.9}{\milli\volt} & \SI{37.55}{\micro\ampere}\\
         \midrule
@@ -139,10 +141,11 @@ The DC simulation was performed to verify the biasing of the circuit, in Figure 
     \label{tab:DC-RFC}
 \end{table}
 
-Observing the results obtained, it is possible to verify that the biasing of the circuit is correct, and the transistors are in the moderate inversion region.
 \subsection{AC Simulation}
 
 The AC simulation was performed to verify the gain and bandwidth of the circuit. The bode diagram obtained is shown in Figure \ref{fig:bode}.
+
+The results obtained are shown in Table \ref{tab:AC}, where is possible to verify that all the goals and constraints were achieved. The pole frequencies of second and third pole are lower than desirable however, with a good phase margin stability is guaranteed. These parameters could be further optimized to the DC gain or GBW, but in order to meet the labwork requirements, the values were kept as they are.
 
 \begin{figure}[H]
     \centering
@@ -151,9 +154,7 @@ The AC simulation was performed to verify the gain and bandwidth of the circuit.
     \label{fig:bode}
 \end{figure}
 
-The results obtained are shown in Table \ref{tab:AC}.
-
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{AC simulation results}
     \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X }
@@ -182,6 +183,8 @@ The results obtained are shown in Table \ref{tab:AC}.
 
 A simplified layout of the circuit was performed to verify the area occupied by the circuit. The layout obtained is shown in Figure \ref{fig:layout}.
 
+This result is consistent with the expected area. The area occupied by the circuit is a crucial parameter in the design of integrated circuits, as it directly influences the cost of the circuit, thus a small area is always desirable.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{Images/layout.png}
@@ -189,4 +192,4 @@ A simplified layout of the circuit was performed to verify the area occupied by 
     \label{fig:layout}
 \end{figure}
 
-The area occupied by the circuit was approximately \SI{1.68}{\nano\meter\squared}.
+The area occupied by the circuit was approximately \SI{1.68}{\nano\meter\squared}, which is a fairly good result for this circuit.
