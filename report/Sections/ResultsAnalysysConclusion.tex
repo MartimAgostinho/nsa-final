@@ -2,7 +2,7 @@
 
 In this section, the results obtained from the simulation of the OTA circuit are presented and analyzed. The results are compared with the theoretical values.
 
-Analyzing the DC simulation, it was detected an error in the current of transistors $M_10$ and $M_11$. Observing the simulation process the error could not be detected, but was found in the Python script that was used to extract the values for the simulations. The error was in the calculation of the width of the transistors, which was calculated with $I_B/4$ instead of $I_B/2$ as it should be. This error was corrected, and the theoretical values were recalculated and are shown in Tables \ref{tab:DC-corrected} and \ref{tab:sizes corrected}.
+Analyzing the DC simulation, it was detected an error in the current of transistors $M_{10}$ and $M_{11}$. Observing the simulation process the error could not be detected, but was found in the Python script that was used to extract the values for the simulations. The error was in the calculation of the width of the transistors, which was calculated with $I_B/4$ instead of $I_B/2$ as it should be. This error was corrected, and the theoretical values were recalculated and are shown in Tables \ref{tab:DC-corrected} and \ref{tab:sizes corrected}.
 
 \begin{table}[H]
     \centering
@@ -20,7 +20,9 @@ Nevertheless, the results obtained from the DC simulation were expected after en
 
 The AC simulation performed showed acceptable values for the goals and constraints defined in the previous sections, even with the error in the biasing of the transistors.
 
-The results obtain from this configuration of Recycling Folded-Cascode OTA can overcome the ones obtain with the conventional Folded-Cascode OTA, even without being biased fully correctly.
+The results obtain from this configuration of Recycling Folded-Cascode OTA can overcome the ones obtain with the conventional Folded-Cascode OTA in the first labwork, even without being biased fully correctly.
+
+The rRecycling Folded-Cascode configuration with the recycling path improves the transconductance and reduces the power consumption compared to the conventional folded cascode OTA. This is achieved by reusing the current in the recycling path, which enhances the overall performance of the OTA. The simulation results confirm that it provides better gain and bandwidth while maintaining low power consumption.
 
 \subsection{Future Work}
 
