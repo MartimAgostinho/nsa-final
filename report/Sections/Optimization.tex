@@ -8,10 +8,7 @@ As a starting point all transistors sizes were set to have length of $\SI{600}{\
 
 \subsection{DC gain analysis}
 \label{sec:DCGain}
-In order to achieve the DC gain goal of $\SI{66}{\decibel}$, it is important to first identify the devices that will influence this value and specifically what parameters. \textcolor{red}{Faltam coisas aqui ver comment}
-
-%TODO REF NA EQUACAO DO GANHO
-%Table \ref{tab:GainTransistors}, shows the devices characteristics that affect gain, this was done by analysing \ref{eq:AvFinal}.
+In order to achieve the DC gain goal of $\SI{66}{\decibel}$, it is important to first identify the devices that will influence this value and specifically what parameters. Table \ref{tab:GainTransistors}, shows the devices characteristics that affect gain, this was done by analysing \ref{eq:Av}.
 
 \begin{table}[H]
     \centering
@@ -59,10 +56,7 @@ Knowing this, a heatmap was plotted, Figure \ref{fig:GainHeatMap}. The heatmap p
 
 \subsection{Gain Bandwidth Product (GBW) analysis}
 \label{sec:GBWPython}
-Analogously to the subsection \ref{sec:DCGain}, to achieve the Gain Bandwidth Product (GBW) target of $\SI{100}{\mega\hertz}$, the devices and parameters that influence this performance metric must be identified.\textcolor{red}{Faltam coisas aqui ver comment}
-
-%TODO REF NA EQUACAO DO GANHO
-%Using equation \ref{eq:GBW}, the table \ref{tab:GBWTransistors} was constructed.
+Analogously to the subsection \ref{sec:DCGain}, to achieve the Gain Bandwidth Product (GBW) target of $\SI{100}{\mega\hertz}$, the devices and parameters that influence this performance metric must be identified. Using equation \ref{eq:GBW}, the table \ref{tab:GBWTransistors} was constructed.
 
 \begin{table}[H]
     \centering
@@ -260,27 +254,27 @@ The final values for each transistor $V_{DSsat}$ and $I_D$ current can be found 
         \midrule
         $M_{2b}$ & \SI{-50}{\milli\volt} & \SI{-25}{\micro\ampere}\\
         \midrule
-        $M_{3}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-50}{\micro\ampere}}\\
+        $M_{3}$ & \SI{-50}{\milli\volt} & \SI{-50}{\micro\ampere}\\
         \midrule
-        $M_{4}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-50}{\micro\ampere}}\\
+        $M_{4}$ & \SI{-50}{\milli\volt} & \SI{-50}{\micro\ampere}\\
         \midrule
-        $M_{5}$ & \SI{100}{\milli\volt} & \textcolor{red}{\SI{50}{\micro\ampere}}\\
+        $M_{5}$ & \SI{100}{\milli\volt} & \SI{50}{\micro\ampere}\\
         \midrule
-        $M_{6}$ & \SI{100}{\milli\volt} & \textcolor{red}{\SI{50}{\micro\ampere}}\\
+        $M_{6}$ & \SI{100}{\milli\volt} & \SI{50}{\micro\ampere}\\
         \midrule
-        $M_{7a}$ & \SI{60}{\milli\volt} & \textcolor{red}{\SI{75}{\micro\ampere}}\\
+        $M_{7a}$ & \SI{60}{\milli\volt} & \SI{75}{\micro\ampere}\\
         \midrule
         $M_{7b}$ & \SI{60}{\milli\volt} & \SI{25}{\micro\ampere}\\
         \midrule
-        $M_{8a}$ & \SI{60}{\milli\volt} & \textcolor{red}{\SI{75}{\micro\ampere}}\\
+        $M_{8a}$ & \SI{60}{\milli\volt} & \SI{75}{\micro\ampere}\\
         \midrule
         $M_{8b}$ & \SI{60}{\milli\volt} & \SI{25}{\micro\ampere}\\
         \midrule
         $M_{9}$ & \SI{100}{\milli\volt} & \SI{-100}{\micro\ampere}\\
         \midrule
-        $M_{10}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-25}{\micro\ampere}}\\
+        $M_{10}$ & \SI{-50}{\milli\volt} & \SI{-25}{\micro\ampere}\\
         \midrule
-        $M_{11}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-25}{\micro\ampere}}\\
+        $M_{11}$ & \SI{-50}{\milli\volt} & \SI{-25}{\micro\ampere}\\
         \midrule
         $M_{12}$ & \SI{100}{\milli\volt} & \SI{25}{\micro\ampere}\\
         \midrule
@@ -306,27 +300,27 @@ The final values for each transistor $V_{DSsat}$ and $I_D$ current can be found 
         \midrule
         $M_{2b}$ & \SI{-50}{\milli\volt} & \SI{-25}{\micro\ampere}\\
         \midrule
-        $M_{3}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-50}{\micro\ampere}}\\
+        $M_{3}$ & \SI{-50}{\milli\volt} & \SI{-50}{\micro\ampere}\\
         \midrule
-        $M_{4}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-50}{\micro\ampere}}\\
+        $M_{4}$ & \SI{-50}{\milli\volt} & \SI{-50}{\micro\ampere}\\
         \midrule
-        $M_{5}$ & \SI{100}{\milli\volt} & \textcolor{red}{\SI{50}{\micro\ampere}}\\
+        $M_{5}$ & \SI{100}{\milli\volt} & \SI{50}{\micro\ampere}\\
         \midrule
-        $M_{6}$ & \SI{100}{\milli\volt} & \textcolor{red}{\SI{50}{\micro\ampere}}\\
+        $M_{6}$ & \SI{100}{\milli\volt} & \SI{50}{\micro\ampere}\\
         \midrule
-        $M_{7a}$ & \SI{60}{\milli\volt} & \textcolor{red}{\SI{75}{\micro\ampere}}\\
+        $M_{7a}$ & \SI{60}{\milli\volt} & \SI{75}{\micro\ampere}\\
         \midrule
         $M_{7b}$ & \SI{60}{\milli\volt} & \SI{25}{\micro\ampere}\\
         \midrule
-        $M_{8a}$ & \SI{60}{\milli\volt} & \textcolor{red}{\SI{75}{\micro\ampere}}\\
+        $M_{8a}$ & \SI{60}{\milli\volt} & \SI{75}{\micro\ampere}\\
         \midrule
         $M_{8b}$ & \SI{60}{\milli\volt} & \SI{25}{\micro\ampere}\\
         \midrule
         $M_{9}$ & \SI{100}{\milli\volt} & \SI{-100}{\micro\ampere}\\
         \midrule
-        $M_{10}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-50}{\micro\ampere}}\\
+        $M_{10}$ & \SI{-50}{\milli\volt} & \SI{-50}{\micro\ampere}\\
         \midrule
-        $M_{11}$ & \SI{-50}{\milli\volt} & \textcolor{red}{\SI{-50}{\micro\ampere}}\\
+        $M_{11}$ & \SI{-50}{\milli\volt} & \SI{-50}{\micro\ampere}\\
         \midrule
         $M_{12}$ & \SI{100}{\milli\volt} & \SI{25}{\micro\ampere}\\
         \midrule
