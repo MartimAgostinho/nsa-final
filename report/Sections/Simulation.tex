@@ -16,20 +16,40 @@ The schematic of the circuit obtained in Cadence is shown in Figure \ref{fig:WL}
 \begin{table}[h]
     \centering
     \caption{Transistors final dimensions}
-    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash} X >{\centering\arraybackslash}X}
         \toprule
-        \textbf{Transistor} & \textbf{Length (L)} & \textbf{Width (W)}\\
+        \textbf{Transistor} & \textbf{Width (W)} & \textbf{Length (L)} & \textbf{Fingers}\\
         \midrule
-        M1a & L & W\\
+        $M_{B1}, \ M_{B2}, \ M_{B4}$ & \SI{2.84}{\micro\meter} & \SI{180}{\nano\meter} &  1\\
         \midrule
-        M1a & L & W\\
+        $M_{B3}, \ M_{B7}$ & \SI{1.69}{\micro\meter} & \SI{180}{\nano\meter} & 1\\
+        \midrule
+        $M_{B5}$ & \SI{520}{\nano\meter} & \SI{800}{\nano\meter} & 1\\
+        \midrule
+        $M_{B6}$ & \SI{740}{\nano\meter} & \SI{600}{\nano\meter} & 1\\
+        \midrule
+        $M_{1a}, \ M_{2a}, \ M_{1b}, \ M_{2b}$ & \SI{9.335}{\micro\meter} & \SI{400}{\nano\meter} & 12\\
+        \midrule
+        $M_{3}, \ M_{4}$ & \SI{7.745}{\micro\meter} & \SI{200}{\nano\meter} & 8\\
+        \midrule
+        $M_{5}, \ M_{6}$ & \SI{8.165}{\micro\meter} & \SI{800}{\nano\meter} & 4\\
+        \midrule
+        $M_{7a}, \ M_{8a}$ & \SI{9.915}{\micro\meter} & \SI{500}{\nano\meter} & 6\\
+        \midrule
+        $M_{7b}, \ M_{8b}$ & \SI{7.5}{\micro\meter} & \SI{180}{\nano\meter} & 4\\
+        \midrule
+        $M_{9}$ & \SI{8.25}{\micro\meter} & \SI{180}{\nano\meter} & 6\\
+        \midrule
+        $M_{10}, \ M_{11}$ & \SI{8.52}{\micro\meter} & \SI{600}{\nano\meter} & 10\\
+        \midrule
+        $M_{12}, \ M_{13}$ & \SI{4.24}{\micro\meter} & \SI{180}{\nano\meter} & 1\\
         \bottomrule
     \end{tabularx}
     \label{tab:WL}
 \end{table}
 
 
-After the schematic was completed and verified, the symbol of the circuit was created to be used in the simulations. The testing circuit used for simulations is shown in Figure \ref{fig:Symbol}.
+After the schematic was completed and verified, the symbol of the circuit was created to be used in the simulations. The testing circuit used for simulations is shown in Figure \ref{fig:Symbol}. The final current source used in simulations was $\SI{15}{\micro\ampere} = I_B / 10$.
 
 \begin{figure}[H]
     \centering
@@ -40,8 +60,7 @@ After the schematic was completed and verified, the symbol of the circuit was cr
 
 \subsection{DC Simulation}
 
-The DC simulation was performed to verify the biasing of the circuit, in Figure \ref{fig:DC} is shown the results obtained.
-The results were also compiled in Table \ref{tab:DC}.
+The DC simulation was performed to verify the biasing of the circuit, in Figure \ref{fig:DC} is shown the results obtained. The results were also compiled in Table \ref{tab:DC} and Table \ref{tab:DC-RFC}.
 
 \begin{figure}[H]
     \centering
@@ -52,17 +71,72 @@ The results were also compiled in Table \ref{tab:DC}.
 
 \begin{table}[h]
     \centering
-    \caption{DC simulation results}
+    \caption{DC simulation results biasing circuit}
     \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
         \toprule
         \textbf{Transistor} & \textbf{$V_{DSat}$} & \textbf{$I_B$}\\
         \midrule
-        M1a & vdsat & Ib\\
+        $M_{B1}$ & \SI{-138.1}{\milli\volt} & \SI{-15}{\micro\ampere}\\
         \midrule
-        M1a & vdsat & Ib\\
+        $M_{B2}$ & \SI{-138.2}{\milli\volt} & \SI{-17.18}{\micro\ampere}\\
+        \midrule
+        $M_{B3}$ & \SI{120.9}{\milli\volt} & \SI{17.18}{\micro\ampere}\\
+        \midrule
+        $M_{B4}$ & \SI{-138.1}{\milli\volt} & \SI{-15.35}{\micro\ampere}\\
+        \midrule
+        $M_{B5}$ & \SI{341.7}{\milli\volt} & \SI{15.35}{\micro\ampere}\\
+        \midrule
+        $M_{B6}$ & \SI{-435.2}{\milli\volt} & \SI{-17.12}{\micro\ampere}\\
+        \midrule
+        $M_{B7}$ & \SI{120.8}{\milli\volt} & \SI{17.12}{\micro\ampere}\\
         \bottomrule
     \end{tabularx}
     \label{tab:DC}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{DC simulation results main circuit}
+    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+        \toprule
+        \textbf{Transistor} & \textbf{$V_{DSat}$} & \textbf{$I_B$}\\
+        \midrule
+        $M_{1a}$ & \SI{-67.98}{\milli\volt} & \SI{-37.8}{\micro\ampere}\\
+        \midrule
+        $M_{1b}$ & \SI{-67.98}{\milli\volt} & \SI{-37.99}{\micro\ampere}\\
+        \midrule
+        $M_{2a}$ & \SI{-67.78}{\milli\volt} & \SI{-37.45}{\micro\ampere}\\
+        \midrule
+        $M_{2b}$ & \SI{-67.78}{\milli\volt} & \SI{-37.55}{\micro\ampere}\\
+        \midrule
+        $M_{3}$ & \SI{-66.74}{\milli\volt} & \SI{-21.61}{\micro\ampere}\\
+        \midrule
+        $M_{4}$ & \SI{-107.1}{\milli\volt} & \SI{-20.68}{\micro\ampere}\\
+        \midrule
+        $M_{5}$ & \SI{70.61}{\milli\volt} & \SI{21.61}{\micro\ampere}\\
+        \midrule
+        $M_{6}$ & \SI{68.54}{\milli\volt} & \SI{20.68}{\micro\ampere}\\
+        \midrule
+        $M_{7a}$ & \SI{69.2}{\milli\volt} & \SI{59.06}{\micro\ampere}\\
+        \midrule
+        $M_{7b}$ & \SI{66.09}{\milli\volt} & \SI{37.99}{\micro\ampere}\\
+        \midrule
+        $M_{8a}$ & \SI{68.97}{\milli\volt} & \SI{58.48}{\micro\ampere}\\
+        \midrule
+        $M_{8b}$ & \SI{65.93}{\milli\volt} & \SI{37.55}{\micro\ampere}\\
+        \midrule
+        $M_{9}$ & \SI{-139}{\milli\volt} & \SI{-150.8}{\micro\ampere}\\
+        \midrule
+        $M_{10}$ & \SI{-69.86}{\milli\volt} & \SI{-20.68}{\micro\ampere}\\
+        \midrule
+        $M_{11}$ & \SI{-69.86}{\milli\volt} & \SI{-21.61}{\micro\ampere}\\
+        \midrule
+        $M_{12}$ & \SI{123.9}{\milli\volt} & \SI{37.55}{\micro\ampere}\\
+        \midrule
+        $M_{13}$ & \SI{124.3}{\milli\volt} & \SI{37.99}{\micro\ampere}\\
+        \bottomrule
+    \end{tabularx}
+    \label{tab:DC-RFC}
 \end{table}
 
 Observing the results obtained, it is possible to verify that the biasing of the circuit is correct, and the transistors are in the moderate inversion region.
@@ -114,3 +188,5 @@ A simplified layout of the circuit was performed to verify the area occupied by 
     \caption{Simplified layout of the circuit.}
     \label{fig:layout}
 \end{figure}
+
+The area occupied by the circuit was approximately \SI{1.68}{\nano\meter\squared}.
